@@ -1,0 +1,17 @@
+C:\Users\student\source\repos\Registration\testingshit\bin\Debug\testingshit.exe.config
+C:\Users\student\source\repos\Registration\testingshit\bin\Debug\testingshit.exe
+C:\Users\student\source\repos\Registration\testingshit\bin\Debug\testingshit.pdb
+C:\Users\student\source\repos\Registration\testingshit\bin\Debug\Registration.dll
+C:\Users\student\source\repos\Registration\testingshit\bin\Debug\Firebase.dll
+C:\Users\student\source\repos\Registration\testingshit\bin\Debug\Newtonsoft.Json.dll
+C:\Users\student\source\repos\Registration\testingshit\bin\Debug\LiteDB.dll
+C:\Users\student\source\repos\Registration\testingshit\bin\Debug\System.Reactive.dll
+C:\Users\student\source\repos\Registration\testingshit\bin\Debug\Registration.pdb
+C:\Users\student\source\repos\Registration\testingshit\bin\Debug\Firebase.xml
+C:\Users\student\source\repos\Registration\testingshit\bin\Debug\Newtonsoft.Json.xml
+C:\Users\student\source\repos\Registration\testingshit\bin\Debug\LiteDB.xml
+C:\Users\student\source\repos\Registration\testingshit\bin\Debug\System.Reactive.xml
+C:\Users\student\source\repos\Registration\testingshit\obj\Debug\testingshit.csprojAssemblyReference.cache
+C:\Users\student\source\repos\Registration\testingshit\obj\Debug\testingshit.csproj.CopyComplete
+C:\Users\student\source\repos\Registration\testingshit\obj\Debug\testingshit.exe
+C:\Users\student\source\repos\Registration\testingshit\obj\Debug\testingshit.pdb
