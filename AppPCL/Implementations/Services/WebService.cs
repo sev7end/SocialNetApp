@@ -2,6 +2,7 @@
 using AppPCL.Abstractions.Services;
 using AppPCL.Implementations.Models;
 using Firebase.Database;
+using Firebase.Database.Query;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,7 @@ namespace AppPCL.Implementations.Services
                     return null;
             }
         }
+
         private FirebaseObject<string> AddDataToServer(string data, DataType dataType)
         {
             if (dataType != DataType.Profile)
@@ -44,30 +46,24 @@ namespace AppPCL.Implementations.Services
             else
                 return firebaseClient.Child(GetDataTable(dataType)).PostAsync(data).Result;
         }
+
         public void UpdateUserProfile(IUserProfile profile)
         {
-
-        }
-        public void AddMessageToDatabase(IMessage message)
-        {
-            var data = JsonConvert.SerializeObject(message);
-            AddDataToServer(data, DataType.Message);
-        }
-        public void AddNotificationToDatabase(INotification notification)
-        {
-            var data = JsonConvert.SerializeObject(notification);
-            AddDataToServer(data, DataType.Notification);
-        }
-        public void AddProfileToServer(IUserProfile profile)
-        {
             var data = JsonConvert.SerializeObject(profile);
-            AddDataToServer(data, DataType.Profile);
+            firebaseClient
+                .Child(ProfileTable)
+                .Child(StaticHolders.Instance.CurrentUserKey)
+                .PutAsync(data);
         }
-        public void AddProfileDtoToServer(IUserMiniProfileDTO profileDto)
+
+        #region Setters
+        public void AddItemToDatabase<T>(T item , DataType dataType)
         {
-            var data = JsonConvert.SerializeObject(profileDto);
-            AddDataToServer(data, DataType.ProfileDTO);
+            var data = JsonConvert.SerializeObject(item);
+            AddDataToServer(data, dataType);
         }
+        #endregion
+        #region Getters
         public List<IMessage> GetAllMessages() 
         {
             var users = firebaseClient
@@ -149,5 +145,6 @@ namespace AppPCL.Implementations.Services
 
             return AbstractCollection;
         }
+        #endregion
     }
 }

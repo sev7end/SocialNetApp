@@ -1,5 +1,6 @@
 ﻿using AppPCL.Abstractions.Models;
 using AppPCL.Abstractions.Services;
+using AppPCL.Implementations.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,17 +30,24 @@ namespace AppPCL.Implementations.Services
 
         public void UpdateProfile(IUserProfile userProfile)
         {
-            
+            webServices.UpdateUserProfile(userProfile);
         }
 
-        public void SetupUserProfileBasics(string _name, string _lastName)
+        public void CreateProfile(int _ID, string _Name, string _LastName, string _ImageURL, DateTime _DateOfBirth)
         {
-            throw new NotImplementedException();
-        }
-
-        public void CreateProfile(string _Name, string _LastName, string _ImageURL, DateTime _DateOfBirth)
-        {
-            throw new NotImplementedException();
+            IUserProfile userProfile = new UserProfile()
+            {
+                Name = _Name,
+                LastName = _LastName,
+                UserImage = _ImageURL,
+                DateOfBirth = _DateOfBirth,
+                ID = _ID,
+                IsProfileSetup = false,
+                userFriends = new List<IUserMiniProfileDTO>(),
+                userMessages = new List<IMessage>(),
+                userNotifications = new List<INotification>()
+            };
+            webServices.AddItemToDatabase<IUserProfile>(userProfile, DataType.Profile);
         }
 
         public void AcceptFriendRequest(INotification notification)
