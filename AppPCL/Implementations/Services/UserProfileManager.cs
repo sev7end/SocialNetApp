@@ -12,7 +12,7 @@ namespace AppPCL.Implementations.Services
     public class UserProfileManager : IUserProfileManager
     {
         IWebServices webServices = null;
-        UserProfileManager()
+        public UserProfileManager()
         {
             webServices = new WebService();
         }
@@ -33,7 +33,7 @@ namespace AppPCL.Implementations.Services
             webServices.UpdateUserProfile(userProfile);
         }
 
-        public void CreateProfile(int _ID, string _Name, string _LastName, string _ImageURL, DateTime _DateOfBirth)
+        public IUserProfile CreateProfile(int _ID, string _Name, string _LastName, string _ImageURL, DateTime _DateOfBirth)
         {
             IUserProfile userProfile = new UserProfile()
             {
@@ -47,12 +47,7 @@ namespace AppPCL.Implementations.Services
                 userMessages = new List<IMessage>(),
                 userNotifications = new List<INotification>()
             };
-            webServices.AddItemToDatabase<IUserProfile>(userProfile, DataType.Profile);
-        }
-
-        public void AcceptFriendRequest(INotification notification)
-        {
-            throw new NotImplementedException();
+            return userProfile;
         }
     }
 }

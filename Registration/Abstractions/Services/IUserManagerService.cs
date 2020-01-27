@@ -12,6 +12,6 @@ namespace Registration.Abstractions.Services
     {
         void RegisterNewUser(string _name, string _lastName, string _Email, string _password);
         bool CheckUserExistence(string _UserName);
-        IUser LoginUser(string _Email, string _Password);
+        bool LoginUser(string _Email, string _Password);
     }
 }

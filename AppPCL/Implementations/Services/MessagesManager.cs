@@ -14,5 +14,10 @@ namespace AppPCL.Implementations.Services
         {
             throw new NotImplementedException();
         }
+
+        public List<IMessage> LoadUserMessages(IUserMiniProfileDTO userMiniProfileDTO)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

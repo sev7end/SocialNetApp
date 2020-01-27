@@ -40,3 +40,5 @@ H:\DledRepos\Registration\SocialApp\bin\Debug\Newtonsoft.Json.xml
 H:\DledRepos\Registration\SocialApp\bin\Debug\LiteDB.xml
 H:\DledRepos\Registration\SocialApp\bin\Debug\System.Reactive.xml
 H:\DledRepos\Registration\SocialApp\obj\Debug\SocialApp.csproj.CopyComplete
+H:\DledRepos\Registration\SocialApp\bin\Debug\AppPCL.dll
+H:\DledRepos\Registration\SocialApp\bin\Debug\AppPCL.pdb

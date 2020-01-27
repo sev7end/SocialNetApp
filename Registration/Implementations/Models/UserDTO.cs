@@ -1,4 +1,5 @@
-﻿using Registration.Abstractions.Models;
+﻿using AppPCL.Implementations.Models;
+using Registration.Abstractions.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,6 @@ namespace Registration.Implementations.Models
     {
         public int ID { get; set; }
         public AuthenticationData authenticationData { get; set; }
-        public string Name { get; set; }
-        public string LastName { get; set; }
+        public UserProfile UserProfileData { get; set; }
     }
 }

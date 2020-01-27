@@ -15,9 +15,11 @@ namespace Registration.Implementations.Services
     public class UserManagerService : IUserManagerService
     {
         private WebService _WebService = null;
+        private UserProfileManager _UserManager = null;
         private WebWorkerService _WebWorkerService = null;
         public UserManagerService() {
             _WebService = new WebService();
+            _UserManager = new UserProfileManager();
             _WebWorkerService = new WebWorkerService(); 
         }
         public bool LoginUser(string _Email, string _Password)
@@ -51,24 +53,27 @@ namespace Registration.Implementations.Services
         }
         public void RegisterNewUser(string _name, string _lastName, string _Email, string _password)
         {
-            _WebService.AddProfileToServer(new UserProfile()
+            #region unnecessary 
+            /*
+            _WebService.AddItemToDatabase(new UserProfile()
             {
                 ID = _WebWorkerService.GetLatestID(),
                 Name = _name,
                 LastName = _lastName
-            });
-            _WebService.AddProfileDtoToServer(new UserMiniProfileDTO()
+            });*/
+            #endregion
+            _WebService.AddItemToDatabase<UserMiniProfileDTO>(new UserMiniProfileDTO()
             {
                 ID = _WebWorkerService.GetLatestID(),
                 Name = _name,
                 LastName = _lastName
-            });
+            }, DataType.ProfileDTO);
             _WebWorkerService.AddUserToDatabase(new User()
             {
-                //add profiledata here
+                UserProfileData = _UserManager.CreateProfile(_WebWorkerService.GetLatestID(), _name, _lastName, "", DateTime.Now),
                 authenticationData = new AuthenticationData() { UserName = _Email, Password = _password },
                 ID = _WebWorkerService.GetLatestID()
-            });
+            }) ;
            
         }
     }

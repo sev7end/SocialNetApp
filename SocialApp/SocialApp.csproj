@@ -58,6 +58,12 @@
     <Compile Include="LoginRegistrations\RegisterPanel.Designer.cs">
       <DependentUpon>RegisterPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="OnProfileLoad\MainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OnProfileLoad\MainPage.Designer.cs">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="LoginRegistrations\LoginPanel.resx">
@@ -94,5 +100,6 @@
       <Name>Registration</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

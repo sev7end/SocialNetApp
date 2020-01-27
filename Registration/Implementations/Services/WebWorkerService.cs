@@ -49,10 +49,10 @@ namespace Registration.Implementations.Services
                 .Result
                 .Select(obj => obj.Object)
                 .ToList();
-            
+
             List<IUser> AbstractCollection = users.Select(o => new User()
             {
-               //get user profile data here
+                UserProfileData = o.UserProfileData,
                 ID = o.ID,
                 authenticationData = new AuthenticationData()
                 {

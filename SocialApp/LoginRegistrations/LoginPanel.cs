@@ -39,9 +39,9 @@ namespace SocialApp.LoginRegistrations
                 MessageBox.Show("Fill all the boxes");
             
             if (Login)
-                MessageBox.Show("Incorrect info.");
-            else
                 MessageBox.Show("Login Successful!");
+            else
+                MessageBox.Show("Incorrect Info");
 
         }
     }

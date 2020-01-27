@@ -26,3 +26,5 @@ H:\DledRepos\Registration\Registration\obj\Debug\Registration.csprojAssemblyRefe
 H:\DledRepos\Registration\Registration\obj\Debug\Registration.csproj.CopyComplete
 H:\DledRepos\Registration\Registration\obj\Debug\Registration.dll
 H:\DledRepos\Registration\Registration\obj\Debug\Registration.pdb
+H:\DledRepos\Registration\Registration\bin\Debug\AppPCL.dll
+H:\DledRepos\Registration\Registration\bin\Debug\AppPCL.pdb

@@ -1,0 +1,14 @@
+H:\DledRepos\Registration\AppPCL\obj\Debug\AppPCL.csprojAssemblyReference.cache
+H:\DledRepos\Registration\AppPCL\bin\Debug\AppPCL.dll
+H:\DledRepos\Registration\AppPCL\bin\Debug\AppPCL.pdb
+H:\DledRepos\Registration\AppPCL\bin\Debug\Firebase.dll
+H:\DledRepos\Registration\AppPCL\bin\Debug\LiteDB.dll
+H:\DledRepos\Registration\AppPCL\bin\Debug\Newtonsoft.Json.dll
+H:\DledRepos\Registration\AppPCL\bin\Debug\System.Reactive.dll
+H:\DledRepos\Registration\AppPCL\bin\Debug\Firebase.xml
+H:\DledRepos\Registration\AppPCL\bin\Debug\LiteDB.xml
+H:\DledRepos\Registration\AppPCL\bin\Debug\Newtonsoft.Json.xml
+H:\DledRepos\Registration\AppPCL\bin\Debug\System.Reactive.xml
+H:\DledRepos\Registration\AppPCL\obj\Debug\AppPCL.csproj.CopyComplete
+H:\DledRepos\Registration\AppPCL\obj\Debug\AppPCL.dll
+H:\DledRepos\Registration\AppPCL\obj\Debug\AppPCL.pdb
