@@ -12,10 +12,11 @@ namespace AppPCL.Implementations.Services
     public class WebService : IWebServices
     {
         private static string APIUrl = "https://wworker-cc787.firebaseio.com/";
+        private string UsersTable = "users";
         private string MessageTable = "messages";
-        private string ProfileTable = "profiles";
+        private string ProfileTable = "UserProfileData";
         private string ProfileDTOTable = "profiledtos";
-        private string NotificationTable = "notificatins";
+        private string NotificationTable = "notifications";
 
         private FirebaseClient firebaseClient = new FirebaseClient(APIUrl);
 
@@ -51,8 +52,9 @@ namespace AppPCL.Implementations.Services
         {
             var data = JsonConvert.SerializeObject(profile);
             firebaseClient
-                .Child(ProfileTable)
+                .Child("users")
                 .Child(StaticHolders.Instance.CurrentUserKey)
+                .Child(ProfileTable)
                 .PutAsync(data);
         }
 
@@ -127,7 +129,7 @@ namespace AppPCL.Implementations.Services
         public List<IUserMiniProfileDTO> GetUserMiniProfileDTOs()
         {
             var users = firebaseClient
-                .Child(MessageTable).
+                .Child(ProfileDTOTable).
                 OnceAsync<UserMiniProfileDTOConversator>()
                 .Result
                 .Select(obj => obj.Object)

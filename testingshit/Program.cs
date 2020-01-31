@@ -1,4 +1,7 @@
-﻿using Registration.Abstractions.Services;
+﻿using AppPCL.Abstractions.Models;
+using AppPCL.Abstractions.Services;
+using AppPCL.Implementations.Services;
+using Registration.Abstractions.Services;
 using Registration.Implementations.Services;
 using System;
 using System.Collections.Generic;
@@ -12,11 +15,11 @@ namespace testingshit
     {
         static void Main(string[] args)
         {
-            IUserManagerService userManager = new UserManagerService();
-            //userManager.RegisterNewUser("tornikea", "qurdadzea", "seva", "123a");
-            //IWebWorkerService webWorker = new WebWorkerService();
-            //var users = webWorker.GetUsersFromDatabase();
-            //var user = userManager.LoginUser("seva", "123a");
+            //IUserManagerService userManager = new UserManagerService();
+            //IWebServices webService = new WebService();
+            //userManager.LoginUser("sev", "123");
+            //StaticHolders.Instance.CurrentUser.Name = "Tornike";
+            //webService.UpdateUserProfile(StaticHolders.Instance.CurrentUser);
             Console.ReadKey();
         }
     }

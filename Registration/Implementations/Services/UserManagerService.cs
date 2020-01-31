@@ -51,7 +51,7 @@ namespace Registration.Implementations.Services
         {
             return _WebWorkerService.GetUsersFromDatabase().FirstOrDefault(o => o.authenticationData.UserName == _UserName) != null ? true : false;
         }
-        public void RegisterNewUser(string _name, string _lastName, string _Email, string _password)
+        public void RegisterNewUser(string _name, string _lastName, string _Email, string _password,string ImageURL)
         {
             #region unnecessary 
             /*
@@ -66,11 +66,12 @@ namespace Registration.Implementations.Services
             {
                 ID = _WebWorkerService.GetLatestID(),
                 Name = _name,
-                LastName = _lastName
+                LastName = _lastName,
+                UserImage = ImageURL,
             }, DataType.ProfileDTO);
             _WebWorkerService.AddUserToDatabase(new User()
             {
-                UserProfileData = _UserManager.CreateProfile(_WebWorkerService.GetLatestID(), _name, _lastName, "", DateTime.Now),
+                UserProfileData = _UserManager.CreateProfile(_WebWorkerService.GetLatestID(), _name, _lastName, ImageURL, DateTime.Now),
                 authenticationData = new AuthenticationData() { UserName = _Email, Password = _password },
                 ID = _WebWorkerService.GetLatestID()
             }) ;

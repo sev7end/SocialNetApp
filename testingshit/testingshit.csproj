@@ -50,6 +50,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AppPCL\AppPCL.csproj">
+      <Project>{0EA2A100-5969-4E59-A24D-890572038994}</Project>
+      <Name>AppPCL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Registration\Registration.csproj">
       <Project>{b23eb9a8-b1cd-45e3-92b1-e56e05667a22}</Project>
       <Name>Registration</Name>

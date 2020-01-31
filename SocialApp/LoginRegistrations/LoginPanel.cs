@@ -1,6 +1,7 @@
 ﻿using Registration.Abstractions.Models;
 using Registration.Implementations.Models;
 using Registration.Implementations.Services;
+using SocialApp.OnProfileLoad;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,9 +38,14 @@ namespace SocialApp.LoginRegistrations
                 Login = UserService.LoginUser(UserBox.Text, PassBox.Text);
             else
                 MessageBox.Show("Fill all the boxes");
-            
+
             if (Login)
+            {
                 MessageBox.Show("Login Successful!");
+                this.Hide();
+                MainPage mainPage = new MainPage();
+                mainPage.Show();
+            }
             else
                 MessageBox.Show("Incorrect Info");
 

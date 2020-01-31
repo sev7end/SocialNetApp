@@ -64,6 +64,12 @@
     <Compile Include="OnProfileLoad\MainPage.Designer.cs">
       <DependentUpon>MainPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="OnProfileLoad\MyProfilePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OnProfileLoad\MyProfilePage.Designer.cs">
+      <DependentUpon>MyProfilePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="LoginRegistrations\LoginPanel.resx">
@@ -71,6 +77,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginRegistrations\RegisterPanel.resx">
       <DependentUpon>RegisterPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OnProfileLoad\MainPage.resx">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OnProfileLoad\MyProfilePage.resx">
+      <DependentUpon>MyProfilePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -95,6 +107,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AppPCL\AppPCL.csproj">
+      <Project>{0EA2A100-5969-4E59-A24D-890572038994}</Project>
+      <Name>AppPCL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Registration\Registration.csproj">
       <Project>{b23eb9a8-b1cd-45e3-92b1-e56e05667a22}</Project>
       <Name>Registration</Name>

@@ -39,7 +39,7 @@ namespace SocialApp.LoginRegistrations
                 {
                     if (!userManager.CheckUserExistence(UserBox.Text))
                     {
-                        userManager.RegisterNewUser(NameBox.Text, LastNameBox.Text, UserBox.Text, PassVBox.Text);
+                        userManager.RegisterNewUser(NameBox.Text, LastNameBox.Text, UserBox.Text, PassVBox.Text,"");
                         MessageBox.Show("Registration was successful!");
                         this.Hide();
                         loginPanel = new LoginPanel();
@@ -59,6 +59,27 @@ namespace SocialApp.LoginRegistrations
             {
                 MessageBox.Show("Fill all the gaps.");
             }
+        }
+
+        private void UploadButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BrowseButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Multiselect = false;
+            
+            if(fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                FileLocation.Text = fileDialog.FileName;
+            }
+        }
+
+        private void FileLocation_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

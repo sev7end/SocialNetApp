@@ -10,7 +10,7 @@ namespace Registration.Abstractions.Services
 {
     public interface IUserManagerService
     {
-        void RegisterNewUser(string _name, string _lastName, string _Email, string _password);
+        void RegisterNewUser(string _name, string _lastName, string _Email, string _password, string ImageURL);
         bool CheckUserExistence(string _UserName);
         bool LoginUser(string _Email, string _Password);
     }
