@@ -34,11 +34,10 @@
             this.FriendsButton = new System.Windows.Forms.Button();
             this.RequestsButton = new System.Windows.Forms.Button();
             this.ProfilesGroupBox = new System.Windows.Forms.GroupBox();
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ProfilesPanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.CurrentProfilePictureBox)).BeginInit();
             this.ProfilesGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -99,64 +98,50 @@
             // ProfilesGroupBox
             // 
             this.ProfilesGroupBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ProfilesGroupBox.Controls.Add(this.tableLayoutPanel1);
+            this.ProfilesGroupBox.Controls.Add(this.ProfilesPanel);
             this.ProfilesGroupBox.Controls.Add(this.button1);
             this.ProfilesGroupBox.Controls.Add(this.label1);
             this.ProfilesGroupBox.Controls.Add(this.textBox1);
-            this.ProfilesGroupBox.Controls.Add(this.vScrollBar1);
-            this.ProfilesGroupBox.Location = new System.Drawing.Point(178, -2);
+            this.ProfilesGroupBox.Location = new System.Drawing.Point(178, -12);
             this.ProfilesGroupBox.Name = "ProfilesGroupBox";
-            this.ProfilesGroupBox.Size = new System.Drawing.Size(1017, 680);
+            this.ProfilesGroupBox.Size = new System.Drawing.Size(1017, 690);
             this.ProfilesGroupBox.TabIndex = 2;
             this.ProfilesGroupBox.TabStop = false;
             this.ProfilesGroupBox.Text = "Profiles";
             this.ProfilesGroupBox.Enter += new System.EventHandler(this.ProfilesGroupBox_Enter);
             // 
-            // vScrollBar1
+            // ProfilesPanel
             // 
-            this.vScrollBar1.Location = new System.Drawing.Point(971, 10);
-            this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(17, 604);
-            this.vScrollBar1.TabIndex = 12;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(270, 10);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(434, 20);
-            this.textBox1.TabIndex = 13;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(220, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Search:";
+            this.ProfilesPanel.Location = new System.Drawing.Point(6, 40);
+            this.ProfilesPanel.Name = "ProfilesPanel";
+            this.ProfilesPanel.Size = new System.Drawing.Size(979, 591);
+            this.ProfilesPanel.TabIndex = 16;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(710, 10);
+            this.button1.Location = new System.Drawing.Point(710, 19);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(52, 20);
             this.button1.TabIndex = 15;
             this.button1.Text = "Go";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel1
+            // label1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.61637F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.38364F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 258F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 45);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.30201F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.69798F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(962, 596);
-            this.tableLayoutPanel1.TabIndex = 16;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(220, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Search:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(270, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(434, 20);
+            this.textBox1.TabIndex = 13;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // MainPage
             // 
@@ -189,10 +174,9 @@
         private System.Windows.Forms.Button FriendsButton;
         private System.Windows.Forms.Button RequestsButton;
         private System.Windows.Forms.GroupBox ProfilesGroupBox;
-        private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel ProfilesPanel;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AppPCL.Abstractions.Models;
 using AppPCL.Abstractions.Services;
+using AppPCL.Implementations.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,26 @@ namespace AppPCL.Implementations.Services
 {
     public class NotificationManager : INotificationsManager
     {
-        public void FriendRequestGenerator(IUserMiniProfileDTO From, IUserMiniProfileDTO To)
+        IWebServices webServices = null;
+        IUserProfileManager profileManager = null;
+
+        NotificationManager()
         {
-            throw new NotImplementedException();
+            profileManager = new UserProfileManager();
+            webServices = new WebService();
+        }
+        public void FriendRequestGenerator(IUserMiniProfileDTO From, int ToID)
+        {
+            IUserProfile userProfile = profileManager.LoadUserProfileFromID(ToID);
+            IUserMiniProfileDTO userMiniProfile = webServices.GetUserMiniProfileDTOs().FirstOrDefault(o => o.ID == userProfile.ID);
+            userProfile.userNotifications.Add(new Notification()
+            {
+                FromUser = From,
+                ToUser = userMiniProfile,
+                IsAccepted = false
+            });
+
+
         }
 
         public List<INotificationsManager> LoadUserNotifications(IUserMiniProfileDTO userMiniProfileDTO)

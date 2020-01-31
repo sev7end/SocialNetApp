@@ -11,6 +11,6 @@ namespace AppPCL.Abstractions.Services
     {
         List<INotificationsManager> LoadUserNotifications(IUserMiniProfileDTO userMiniProfileDTO);
         void SendNotification(NotificationType type, IUserMiniProfileDTO DestinationUser);
-        void FriendRequestGenerator(IUserMiniProfileDTO From, IUserMiniProfileDTO To);
+        void FriendRequestGenerator(IUserMiniProfileDTO From, int ToID);
     }
 }

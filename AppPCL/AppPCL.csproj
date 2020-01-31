@@ -85,6 +85,7 @@
     <Compile Include="Implementations\Models\Notification.cs" />
     <Compile Include="Implementations\Models\UserProfile.cs" />
     <Compile Include="Implementations\Models\UserMiniProfileDTO.cs" />
+    <Compile Include="Implementations\Services\DependencyInjection.cs" />
     <Compile Include="Implementations\Services\MessagesManager.cs" />
     <Compile Include="Implementations\Services\NotificationManager.cs" />
     <Compile Include="Implementations\Services\PictureManagerServices.cs" />

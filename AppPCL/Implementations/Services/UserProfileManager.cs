@@ -21,7 +21,11 @@ namespace AppPCL.Implementations.Services
             var user = webServices.GetUserProfiles().FirstOrDefault(o => o.ID == ID);
             return user.userFriends;
         }
-
+        public IUserProfile LoadUserProfileFromID(int ID)
+        {
+            var user = webServices.GetUserProfiles().FirstOrDefault(o => o.ID == ID);
+            return user;
+        }
         public IUserProfile LoadUserProfileFromDTO(IUserMiniProfileDTO userProfileDTO)
         {
             var user = webServices.GetUserProfiles().FirstOrDefault(o => o.ID == userProfileDTO.ID);
@@ -32,7 +36,7 @@ namespace AppPCL.Implementations.Services
         {
             webServices.UpdateUserProfile(userProfile);
         }
-
+        
         public IUserProfile CreateProfile(int _ID, string _Name, string _LastName, string _ImageURL, DateTime _DateOfBirth)
         {
             IUserProfile userProfile = new UserProfile()

@@ -22,7 +22,7 @@ namespace SocialApp.OnProfileLoad
             Point LastNameLabelPoint = new Point(177, -100);
             Point LastBornPoint = new Point(177, -50);
             Point SendMessagePoint = new Point(782, -100);
-            Point AddFriendPoint = new Point(782, -30);
+            Point AddFriendPoint = new Point(782, -50);
 
             Size ButtonSizes = new Size(157, 47);
             Size PictureSize = new Size(144, 131);
@@ -61,32 +61,49 @@ namespace SocialApp.OnProfileLoad
                 SendMessageButton.Text = "Send Message";
                 SendMessageButton.Location = new Point(SendMessagePoint.X, SendMessagePoint.Y + 150);
                 SendMessageButton.Size = ButtonSizes;
+                SendMessageButton.Click += new EventHandler(this.SendMessageButton_Click);
+                SendMessageButton.Tag = user.ID;
                 SendMessagePoint = SendMessageButton.Location;
 
                 AddFriendButton.Text = "Add Friend";
                 AddFriendButton.Location = new Point(AddFriendPoint.X, AddFriendPoint.Y + 150);
                 AddFriendButton.Size = ButtonSizes;
+                AddFriendButton.Click += new EventHandler(this.AddFriendButton_Click);
+                AddFriendButton.Tag = user.ID;
                 AddFriendPoint = AddFriendButton.Location;
                
                 ((System.ComponentModel.ISupportInitialize)(pictureBox)).EndInit();
-                this.ProfilesGroupBox.Controls.Add(pictureBox);
-                this.ProfilesGroupBox.Controls.Add(NameAndLastName);
-                this.ProfilesGroupBox.Controls.Add(DateOfBirthLabel);
-                this.ProfilesGroupBox.Controls.Add(SendMessageButton);
-                this.ProfilesGroupBox.Controls.Add(AddFriendButton);
-                this.ProfilesGroupBox.Controls.Add(vScrollBar1);
+                this.ProfilesPanel.Controls.Add(pictureBox);
+                this.ProfilesPanel.Controls.Add(NameAndLastName);
+                this.ProfilesPanel.Controls.Add(DateOfBirthLabel);
+                this.ProfilesPanel.Controls.Add(SendMessageButton);
+                this.ProfilesPanel.Controls.Add(AddFriendButton);
+                ProfilesPanel.AutoScroll = true;
+                textBox1.KeyPress+= (s, o) =>
+                {
+                    var text = (s as TextBox).Text;
+                    
+                }
+                //vScrollBar1.AutoScrollOffset = ProfilesGroupBox.AutoScrollOffset;
             }
         }
-
+       
         private void NameAndLastNameLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MyProfilePage page = new MyProfilePage();
             page.Show();
         }
-
         private void MessagesButton_Click(object sender, EventArgs e)
         {
 
+        }
+        private void AddFriendButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+        private void SendMessageButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("sent message");
         }
 
         private void MainPage_Load(object sender, EventArgs e)
@@ -95,6 +112,11 @@ namespace SocialApp.OnProfileLoad
         }
 
         private void ProfilesGroupBox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
