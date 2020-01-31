@@ -20,7 +20,7 @@ namespace SocialApp.OnProfileLoad
             string SampleProfilePic = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
             Point LastPicturePoint = new Point(17,-120);
             Point LastNameLabelPoint = new Point(177, -100);
-            Point LastBornPoint = new Point(177, 0);
+            Point LastBornPoint = new Point(177, -50);
             Point SendMessagePoint = new Point(782, -100);
             Point AddFriendPoint = new Point(782, -30);
 
@@ -50,21 +50,23 @@ namespace SocialApp.OnProfileLoad
                 NameAndLastName.AutoSize = true;
                 NameAndLastName.Font = font;
                 NameAndLastName.Location = new Point(LastNameLabelPoint.X, LastNameLabelPoint.Y + 150);
+                LastNameLabelPoint = NameAndLastName.Location;
 
                 DateOfBirthLabel.Text = user.DateOfBirth.ToString();
                 DateOfBirthLabel.AutoSize = true;
                 DateOfBirthLabel.Font = font;
                 DateOfBirthLabel.Location = new Point(LastBornPoint.X, LastBornPoint.Y + 150);
+                LastBornPoint = DateOfBirthLabel.Location;
 
                 SendMessageButton.Text = "Send Message";
                 SendMessageButton.Location = new Point(SendMessagePoint.X, SendMessagePoint.Y + 150);
                 SendMessageButton.Size = ButtonSizes;
-               
+                SendMessagePoint = SendMessageButton.Location;
 
                 AddFriendButton.Text = "Add Friend";
                 AddFriendButton.Location = new Point(AddFriendPoint.X, AddFriendPoint.Y + 150);
                 AddFriendButton.Size = ButtonSizes;
-
+                AddFriendPoint = AddFriendButton.Location;
                
                 ((System.ComponentModel.ISupportInitialize)(pictureBox)).EndInit();
                 this.ProfilesGroupBox.Controls.Add(pictureBox);
