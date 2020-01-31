@@ -46,3 +46,6 @@ C:\Users\student\Desktop\SocialNetApp-master\Registration\obj\Debug\Registration
 C:\Users\student\Desktop\SocialNetApp-master\Registration\obj\Debug\Registration.pdb
 H:\DledRepos\Registration\Registration\bin\Debug\Registration.dll.config
 H:\DledRepos\Registration\Registration\bin\Debug\AppPCL.dll.config
+H:\DledRepos\Registration\Registration\bin\Debug\CloudinaryDotNet.dll
+H:\DledRepos\Registration\Registration\bin\Debug\System.Text.Encodings.Web.dll
+H:\DledRepos\Registration\Registration\bin\Debug\CloudinaryDotNet.xml

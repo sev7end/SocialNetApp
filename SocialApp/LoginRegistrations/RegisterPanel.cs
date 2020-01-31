@@ -1,4 +1,5 @@
-﻿using Registration.Implementations.Services;
+﻿using AppPCL.Implementations.Services;
+using Registration.Implementations.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,10 +16,15 @@ namespace SocialApp.LoginRegistrations
     {
         private UserManagerService userManager;
         private LoginPanel loginPanel;
+        private PictureManagerServices pictureManager;
+        private string UserProfilePic;
         public RegisterPanel()
         {
-            userManager = new UserManagerService();
             InitializeComponent();
+            userManager = new UserManagerService();
+            pictureManager = new PictureManagerServices();
+            pictureBox1.ImageLocation = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT9Tk6QGooYTtRLZe5081Ajm72fRk0ny7fYp4Moxu0qQkGxaWNM"; 
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -39,7 +45,7 @@ namespace SocialApp.LoginRegistrations
                 {
                     if (!userManager.CheckUserExistence(UserBox.Text))
                     {
-                        userManager.RegisterNewUser(NameBox.Text, LastNameBox.Text, UserBox.Text, PassVBox.Text,"");
+                        userManager.RegisterNewUser(NameBox.Text, LastNameBox.Text, UserBox.Text, PassVBox.Text,UserProfilePic);
                         MessageBox.Show("Registration was successful!");
                         this.Hide();
                         loginPanel = new LoginPanel();
@@ -63,7 +69,14 @@ namespace SocialApp.LoginRegistrations
 
         private void UploadButton_Click(object sender, EventArgs e)
         {
-
+            if (!string.IsNullOrWhiteSpace(FileLocation.Text))
+            {
+                UserProfilePic = pictureManager.UploadPicture(FileLocation.Text);
+                pictureBox1.ImageLocation = UserProfilePic;
+                pictureBox1.Refresh();
+            }
+            else
+                MessageBox.Show("Error, please choose a file");
         }
 
         private void BrowseButton_Click(object sender, EventArgs e)
