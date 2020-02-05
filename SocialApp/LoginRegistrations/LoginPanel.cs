@@ -1,4 +1,5 @@
-﻿using Registration.Abstractions.Models;
+﻿using MetroSet_UI.Forms;
+using Registration.Abstractions.Models;
 using Registration.Implementations.Models;
 using Registration.Implementations.Services;
 using SocialApp.OnProfileLoad;
@@ -14,7 +15,7 @@ using System.Windows.Forms;
 
 namespace SocialApp.LoginRegistrations
 {
-    public partial class LoginPanel : Form
+    public partial class LoginPanel : MetroSetForm
     {
         private RegisterPanel registerPanel;
         private UserManagerService UserService;
@@ -48,6 +49,11 @@ namespace SocialApp.LoginRegistrations
             }
             else
                 MessageBox.Show("Incorrect Info");
+
+        }
+
+        private void UserBox_Click(object sender, EventArgs e)
+        {
 
         }
     }

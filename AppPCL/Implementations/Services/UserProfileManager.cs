@@ -21,6 +21,12 @@ namespace AppPCL.Implementations.Services
             var user = webServices.GetUserProfiles().FirstOrDefault(o => o.ID == ID);
             return user.userFriends;
         }
+        public List<IUserMiniProfileDTO> GetUserDTOsByNames(string name, string lastname)
+        {
+            var user = webServices.GetUserMiniProfileDTOs().Where(o => o.Name == name || o.LastName.ToLower() == lastname.ToLower() 
+            || $"{name.ToLower()}" == $"{o.Name.ToLower()} {o.LastName.ToLower()}").ToList();
+            return user;
+        }
         public IUserProfile LoadUserProfileFromID(int ID)
         {
             var user = webServices.GetUserProfiles().FirstOrDefault(o => o.ID == ID);

@@ -1,4 +1,5 @@
 ﻿using AppPCL.Implementations.Services;
+using MetroSet_UI.Forms;
 using Registration.Implementations.Services;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Windows.Forms;
 
 namespace SocialApp.LoginRegistrations
 {
-    public partial class RegisterPanel : Form
+    public partial class RegisterPanel : MetroSetForm
     {
         private UserManagerService userManager;
         private LoginPanel loginPanel;
@@ -46,24 +47,24 @@ namespace SocialApp.LoginRegistrations
                     if (!userManager.CheckUserExistence(UserBox.Text))
                     {
                         userManager.RegisterNewUser(NameBox.Text, LastNameBox.Text, UserBox.Text, PassVBox.Text,UserProfilePic);
-                        MessageBox.Show("Registration was successful!");
+                        MetroSetMessageBox.Show(this,"Registration was successful!","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
                         this.Hide();
                         loginPanel = new LoginPanel();
                         loginPanel.Show();
                         this.Close();
                     }
                     else
-                        MessageBox.Show("Username is already in use.");
+                        MetroSetMessageBox.Show(this, "Username is already in use!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Passwords Didn't Match.");
+                    MetroSetMessageBox.Show(this, "Passwords didn't match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
             else
             {
-                MessageBox.Show("Fill all the gaps.");
+                MetroSetMessageBox.Show(this, "Fill all the gaps!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -91,6 +92,16 @@ namespace SocialApp.LoginRegistrations
         }
 
         private void FileLocation_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroSetButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void PassVBox_Click(object sender, EventArgs e)
         {
 
         }

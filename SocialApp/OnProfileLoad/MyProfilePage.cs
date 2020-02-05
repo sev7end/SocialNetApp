@@ -1,4 +1,5 @@
 ﻿using AppPCL.Implementations.Services;
+using MetroSet_UI.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 
 namespace SocialApp.OnProfileLoad
 {
-    public partial class MyProfilePage : Form
+    public partial class MyProfilePage : MetroSetForm
     {
         public MyProfilePage()
         { 
@@ -31,6 +32,11 @@ namespace SocialApp.OnProfileLoad
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void metroSetButton1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

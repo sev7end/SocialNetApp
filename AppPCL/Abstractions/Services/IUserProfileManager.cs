@@ -9,6 +9,7 @@ namespace AppPCL.Abstractions.Services
 {
     public interface IUserProfileManager
     {
+        List<IUserMiniProfileDTO> GetUserDTOsByNames(string name, string lastname);
         IUserProfile LoadUserProfileFromID(int ID);
         void UpdateProfile(IUserProfile userProfile);
         IUserProfile CreateProfile(int _ID, string _Name, string _LastName, string _ImageURL, DateTime _DateOfBirth);

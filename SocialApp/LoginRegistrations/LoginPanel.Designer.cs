@@ -1,4 +1,6 @@
-﻿namespace SocialApp.LoginRegistrations
+﻿using MetroSet_UI.Controls;
+
+namespace SocialApp.LoginRegistrations
 {
     partial class LoginPanel
     {
@@ -28,88 +30,145 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.UserBox = new System.Windows.Forms.TextBox();
-            this.PassBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.UserBox = new MetroSet_UI.Controls.MetroSetTextBox();
+            this.PassBox = new MetroSet_UI.Controls.MetroSetTextBox();
+            this.button1 = new MetroSet_UI.Controls.MetroSetButton();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.metroSetButton1 = new MetroSet_UI.Controls.MetroSetButton();
             this.SuspendLayout();
             // 
             // UserBox
             // 
+            this.UserBox.AutoCompleteCustomSource = null;
+            this.UserBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.UserBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.UserBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.UserBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.UserBox.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.UserBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
             this.UserBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserBox.Location = new System.Drawing.Point(12, 40);
+            this.UserBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.UserBox.Image = null;
+            this.UserBox.Lines = null;
+            this.UserBox.Location = new System.Drawing.Point(26, 96);
+            this.UserBox.MaxLength = 32767;
+            this.UserBox.Multiline = false;
             this.UserBox.Name = "UserBox";
+            this.UserBox.ReadOnly = false;
             this.UserBox.Size = new System.Drawing.Size(383, 29);
+            this.UserBox.Style = MetroSet_UI.Design.Style.Light;
+            this.UserBox.StyleManager = null;
             this.UserBox.TabIndex = 0;
+            this.UserBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.UserBox.ThemeAuthor = "Narwin";
+            this.UserBox.ThemeName = "MetroLite";
+            this.UserBox.UseSystemPasswordChar = false;
+            this.UserBox.WatermarkText = "UserName";
+            this.UserBox.Click += new System.EventHandler(this.UserBox_Click);
             // 
             // PassBox
             // 
+            this.PassBox.AutoCompleteCustomSource = null;
+            this.PassBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.PassBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.PassBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.PassBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.PassBox.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.PassBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
             this.PassBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PassBox.Location = new System.Drawing.Point(12, 99);
+            this.PassBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.PassBox.Image = null;
+            this.PassBox.Lines = null;
+            this.PassBox.Location = new System.Drawing.Point(26, 145);
+            this.PassBox.MaxLength = 32767;
+            this.PassBox.Multiline = false;
             this.PassBox.Name = "PassBox";
-            this.PassBox.PasswordChar = '*';
+            this.PassBox.ReadOnly = false;
             this.PassBox.Size = new System.Drawing.Size(383, 29);
+            this.PassBox.Style = MetroSet_UI.Design.Style.Light;
+            this.PassBox.StyleManager = null;
             this.PassBox.TabIndex = 1;
+            this.PassBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.PassBox.ThemeAuthor = "Narwin";
+            this.PassBox.ThemeName = "MetroLite";
             this.PassBox.UseSystemPasswordChar = true;
+            this.PassBox.WatermarkText = "Password";
             // 
             // button1
             // 
+            this.button1.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.button1.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.button1.DisabledForeColor = System.Drawing.Color.Gray;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(136, 146);
+            this.button1.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.button1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.button1.HoverTextColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(146, 193);
             this.button1.Name = "button1";
+            this.button1.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.button1.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.button1.NormalTextColor = System.Drawing.Color.White;
+            this.button1.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.button1.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.button1.PressTextColor = System.Drawing.Color.White;
             this.button1.Size = new System.Drawing.Size(124, 32);
+            this.button1.Style = MetroSet_UI.Design.Style.Light;
+            this.button1.StyleManager = null;
             this.button1.TabIndex = 2;
             this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.ThemeAuthor = "Narwin";
+            this.button1.ThemeName = "MetroLite";
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 24);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Username : ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 24);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Password : ";
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(13, 158);
+            this.linkLabel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.linkLabel1.Location = new System.Drawing.Point(313, 203);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(58, 13);
+            this.linkLabel1.Size = new System.Drawing.Size(96, 22);
             this.linkLabel1.TabIndex = 5;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "New user?";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // metroSetButton1
+            // 
+            this.metroSetButton1.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroSetButton1.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroSetButton1.DisabledForeColor = System.Drawing.Color.Gray;
+            this.metroSetButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.metroSetButton1.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.metroSetButton1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.metroSetButton1.HoverTextColor = System.Drawing.Color.White;
+            this.metroSetButton1.Location = new System.Drawing.Point(397, 48);
+            this.metroSetButton1.Name = "metroSetButton1";
+            this.metroSetButton1.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroSetButton1.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroSetButton1.NormalTextColor = System.Drawing.Color.White;
+            this.metroSetButton1.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.metroSetButton1.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.metroSetButton1.PressTextColor = System.Drawing.Color.White;
+            this.metroSetButton1.Size = new System.Drawing.Size(30, 23);
+            this.metroSetButton1.Style = MetroSet_UI.Design.Style.Light;
+            this.metroSetButton1.StyleManager = null;
+            this.metroSetButton1.TabIndex = 17;
+            this.metroSetButton1.Text = "X";
+            this.metroSetButton1.ThemeAuthor = "Narwin";
+            this.metroSetButton1.ThemeName = "MetroLite";
+            // 
             // LoginPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(407, 186);
+            this.ClientSize = new System.Drawing.Size(442, 252);
+            this.Controls.Add(this.metroSetButton1);
             this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.PassBox);
             this.Controls.Add(this.UserBox);
-            this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(423, 225);
-            this.MinimumSize = new System.Drawing.Size(423, 225);
+            this.MaximumSize = new System.Drawing.Size(442, 252);
+            this.MinimumSize = new System.Drawing.Size(442, 252);
             this.Name = "LoginPanel";
             this.ShowIcon = false;
             this.Text = "Login";
@@ -120,11 +179,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox UserBox;
-        private System.Windows.Forms.TextBox PassBox;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private MetroSetTextBox UserBox;
+        private MetroSetTextBox PassBox;
+        private MetroSetButton button1;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private MetroSetButton metroSetButton1;
     }
 }
