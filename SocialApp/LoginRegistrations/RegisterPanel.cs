@@ -46,12 +46,20 @@ namespace SocialApp.LoginRegistrations
                 {
                     if (!userManager.CheckUserExistence(UserBox.Text))
                     {
-                        userManager.RegisterNewUser(NameBox.Text, LastNameBox.Text, UserBox.Text, PassVBox.Text,UserProfilePic);
-                        MetroSetMessageBox.Show(this,"Registration was successful!","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        if (!string.IsNullOrWhiteSpace(FileLocation.Text))
+                        {
+                            UserProfilePic = pictureManager.UploadPicture(FileLocation.Text);
+                        }
+                        else
+                            UserProfilePic = pictureBox1.ImageLocation;
+
+                        userManager.RegisterNewUser(NameBox.Text, LastNameBox.Text, UserBox.Text, PassVBox.Text, UserProfilePic);
+                        MetroSetMessageBox.Show(this, "Registration was successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Hide();
                         loginPanel = new LoginPanel();
                         loginPanel.Show();
                         this.Close();
+
                     }
                     else
                         MetroSetMessageBox.Show(this, "Username is already in use!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -68,17 +76,17 @@ namespace SocialApp.LoginRegistrations
             }
         }
 
-        private void UploadButton_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(FileLocation.Text))
-            {
-                UserProfilePic = pictureManager.UploadPicture(FileLocation.Text);
-                pictureBox1.ImageLocation = UserProfilePic;
-                pictureBox1.Refresh();
-            }
-            else
-                MessageBox.Show("Error, please choose a file");
-        }
+        //private void UploadButton_Click(object sender, EventArgs e)
+        //{
+        //    //if (!string.IsNullOrWhiteSpace(FileLocation.Text))
+        //    //{
+        //    //    UserProfilePic = pictureManager.UploadPicture(FileLocation.Text);
+        //    //    pictureBox1.ImageLocation = UserProfilePic;
+        //    //    pictureBox1.Refresh();
+        //    //}
+        //    //else
+        //    //    MessageBox.Show("Error, please choose a file");
+        //}
 
         private void BrowseButton_Click(object sender, EventArgs e)
         {
@@ -88,7 +96,9 @@ namespace SocialApp.LoginRegistrations
             if(fileDialog.ShowDialog() == DialogResult.OK)
             {
                 FileLocation.Text = fileDialog.FileName;
+                pictureBox1.ImageLocation = fileDialog.FileName;
             }
+            pictureBox1.Refresh();
         }
 
         private void FileLocation_TextChanged(object sender, EventArgs e)
@@ -99,6 +109,8 @@ namespace SocialApp.LoginRegistrations
         private void metroSetButton1_Click(object sender, EventArgs e)
         {
             this.Close();
+            LoginPanel loginPanel = new LoginPanel();
+            loginPanel.Show();
         }
 
         private void PassVBox_Click(object sender, EventArgs e)

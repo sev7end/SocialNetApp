@@ -23,16 +23,12 @@ namespace SocialApp.OnProfileLoad
             InitializeComponent();
             WebServices = new WebService();
             ProfileManager = new UserProfileManager();
-            NameAndLastNameLabel.Text = $"{StaticHolders.Instance.CurrentUser.Name} {StaticHolders.Instance.CurrentUser.LastName}";
+            ProfileLink.Text = $"{StaticHolders.Instance.CurrentUser.Name} {StaticHolders.Instance.CurrentUser.LastName}";
             CurrentProfilePictureBox.ImageLocation = StaticHolders.Instance.CurrentUser.UserImage;
             CurrentProfilePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             UserFriends = StaticHolders.Instance.CurrentUser.userFriends;
         }
-        private void NameAndLastNameLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            MyProfilePage page = new MyProfilePage();
-            page.Show();
-        }
+
         private void MessagesButton_Click(object sender, EventArgs e)
         {
 
@@ -94,14 +90,14 @@ namespace SocialApp.OnProfileLoad
                 SendMessageButton.Text = "Send Message";
                 SendMessageButton.Location = new Point(SendMessagePoint.X, SendMessagePoint.Y + 150);
                 SendMessageButton.Size = ButtonSizes;
-                SendMessageButton.Click += (s, eventarg) => { MetroSetMessageBox.Show(this,"Message Sent!"); };
+                SendMessageButton.Click += (s, eventarg) => { MetroSetMessageBox.Show(this, "Message Sent!"); };
                 SendMessageButton.Tag = user.ID;
                 SendMessagePoint = SendMessageButton.Location;
 
                 AddFriendButton.Text = "Add Friend";
                 AddFriendButton.Location = new Point(AddFriendPoint.X, AddFriendPoint.Y + 150);
                 AddFriendButton.Size = ButtonSizes;
-                AddFriendButton.Click += (s, eventarg) => { MetroSetMessageBox.Show(this,"Friend Request Sent!"); };
+                AddFriendButton.Click += (s, eventarg) => { MetroSetMessageBox.Show(this, "Friend Request Sent!"); };
                 AddFriendButton.Tag = user.ID;
                 AddFriendPoint = AddFriendButton.Location;
 
@@ -113,14 +109,6 @@ namespace SocialApp.OnProfileLoad
                 ProfilesPanel.Controls.Add(AddFriendButton);
                 ProfilesPanel.AutoScroll = true;
             }
-        }
-        private void ProfilesGroupBox_Enter(object sender, EventArgs e)
-        {
-
-        }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void metroSetButton1_Click(object sender, EventArgs e)
@@ -189,12 +177,47 @@ namespace SocialApp.OnProfileLoad
                 AddFriendPoint = AddFriendButton.Location;
 
                 ((System.ComponentModel.ISupportInitialize)(pictureBox)).EndInit();
-                ProfilesPanel.Controls.Add(pictureBox);
-                ProfilesPanel.Controls.Add(NameAndLastName);
-                ProfilesPanel.Controls.Add(DateOfBirthLabel);
-                ProfilesPanel.Controls.Add(SendMessageButton);
-                ProfilesPanel.Controls.Add(AddFriendButton);
-                ProfilesPanel.AutoScroll = true;
+                FriendsPanel.Controls.Add(pictureBox);
+                FriendsPanel.Controls.Add(NameAndLastName);
+                FriendsPanel.Controls.Add(DateOfBirthLabel);
+                FriendsPanel.Controls.Add(SendMessageButton);
+                FriendsPanel.Controls.Add(AddFriendButton);
+                FriendsPanel.AutoScroll = true;
+            }
+        }
+
+        private void metroSetButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            StaticHolders.Instance.SignOut();
+            LoginRegistrations.LoginPanel loginPanel = new LoginRegistrations.LoginPanel();
+            loginPanel.Show();
+        }
+
+        private void metroSetLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ProfileLink_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MyProfilePage page = new MyProfilePage();
+            page.Show();
+        }
+
+        private void metroSetSwitch1_SwitchedChanged(object sender)
+        {
+            if (metroSetSwitch1.Switched)
+            {
+                this.Style = MetroSet_UI.Design.Style.Dark;
+                ProfileLink.LinkColor = Color.White;
+                //ProfilesPanel.Style = MetroSet_UI.Design.Style.Dark;
+            }
+            else
+            {
+                this.Style = MetroSet_UI.Design.Style.Light;
+                ProfileLink.LinkColor = Color.Black;
+                ProfilesPanel.Style = MetroSet_UI.Design.Style.Light;
             }
         }
     }

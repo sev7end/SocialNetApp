@@ -34,5 +34,13 @@ namespace AppPCL.Implementations.Services
         public int CurrentUserID { get; set; }
         public IUserProfile CurrentUser { get; set; }
         public IUserMiniProfileDTO CurrentUserDTO { get; set; }
+
+        public void SignOut()
+        {
+            CurrentUser = null;
+            CurrentUserDTO = null;
+            CurrentUserID = -1;
+            CurrentUserKey = null;
+        }
     }
 }

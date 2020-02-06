@@ -39,7 +39,6 @@ namespace SocialApp.LoginRegistrations
             this.PassVBox = new MetroSet_UI.Controls.MetroSetTextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.UploadButton = new MetroSet_UI.Controls.MetroSetButton();
             this.FileLocation = new MetroSet_UI.Controls.MetroSetTextBox();
             this.BrowseButton = new MetroSet_UI.Controls.MetroSetButton();
             this.metroSetButton1 = new MetroSet_UI.Controls.MetroSetButton();
@@ -232,32 +231,6 @@ namespace SocialApp.LoginRegistrations
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
             // 
-            // UploadButton
-            // 
-            this.UploadButton.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.UploadButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.UploadButton.DisabledForeColor = System.Drawing.Color.Gray;
-            this.UploadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.UploadButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.UploadButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.UploadButton.HoverTextColor = System.Drawing.Color.White;
-            this.UploadButton.Location = new System.Drawing.Point(301, 134);
-            this.UploadButton.Name = "UploadButton";
-            this.UploadButton.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.UploadButton.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.UploadButton.NormalTextColor = System.Drawing.Color.White;
-            this.UploadButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.UploadButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.UploadButton.PressTextColor = System.Drawing.Color.White;
-            this.UploadButton.Size = new System.Drawing.Size(129, 41);
-            this.UploadButton.Style = MetroSet_UI.Design.Style.Light;
-            this.UploadButton.StyleManager = null;
-            this.UploadButton.TabIndex = 18;
-            this.UploadButton.Text = "Upload";
-            this.UploadButton.ThemeAuthor = "Narwin";
-            this.UploadButton.ThemeName = "MetroLite";
-            this.UploadButton.Click += new System.EventHandler(this.UploadButton_Click);
-            // 
             // FileLocation
             // 
             this.FileLocation.AutoCompleteCustomSource = null;
@@ -271,12 +244,12 @@ namespace SocialApp.LoginRegistrations
             this.FileLocation.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.FileLocation.Image = null;
             this.FileLocation.Lines = null;
-            this.FileLocation.Location = new System.Drawing.Point(119, 97);
+            this.FileLocation.Location = new System.Drawing.Point(121, 97);
             this.FileLocation.MaxLength = 32767;
             this.FileLocation.Multiline = false;
             this.FileLocation.Name = "FileLocation";
             this.FileLocation.ReadOnly = false;
-            this.FileLocation.Size = new System.Drawing.Size(198, 27);
+            this.FileLocation.Size = new System.Drawing.Size(309, 25);
             this.FileLocation.Style = MetroSet_UI.Design.Style.Light;
             this.FileLocation.StyleManager = null;
             this.FileLocation.TabIndex = 19;
@@ -295,7 +268,7 @@ namespace SocialApp.LoginRegistrations
             this.BrowseButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.BrowseButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
             this.BrowseButton.HoverTextColor = System.Drawing.Color.White;
-            this.BrowseButton.Location = new System.Drawing.Point(323, 97);
+            this.BrowseButton.Location = new System.Drawing.Point(321, 128);
             this.BrowseButton.Name = "BrowseButton";
             this.BrowseButton.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.BrowseButton.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
@@ -346,7 +319,6 @@ namespace SocialApp.LoginRegistrations
             this.Controls.Add(this.metroSetButton1);
             this.Controls.Add(this.BrowseButton);
             this.Controls.Add(this.FileLocation);
-            this.Controls.Add(this.UploadButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.PassVBox);
@@ -372,7 +344,6 @@ namespace SocialApp.LoginRegistrations
         private MetroSetTextBox PassVBox;
         private LinkLabel linkLabel1;
         private PictureBox pictureBox1;
-        private MetroSetButton UploadButton;
         private MetroSetTextBox FileLocation;
         private MetroSetButton BrowseButton;
         private MetroSetButton metroSetButton1;

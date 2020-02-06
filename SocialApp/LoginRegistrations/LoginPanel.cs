@@ -51,10 +51,9 @@ namespace SocialApp.LoginRegistrations
                 MessageBox.Show("Incorrect Info");
 
         }
-
-        private void UserBox_Click(object sender, EventArgs e)
+        private void metroSetButton1_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
     }
 }

@@ -64,7 +64,7 @@ namespace SocialApp.LoginRegistrations
             this.UserBox.ThemeName = "MetroLite";
             this.UserBox.UseSystemPasswordChar = false;
             this.UserBox.WatermarkText = "UserName";
-            this.UserBox.Click += new System.EventHandler(this.UserBox_Click);
+            //this.UserBox.Click += new System.EventHandler(this.UserBox_Click);
             // 
             // PassBox
             // 
@@ -156,6 +156,7 @@ namespace SocialApp.LoginRegistrations
             this.metroSetButton1.Text = "X";
             this.metroSetButton1.ThemeAuthor = "Narwin";
             this.metroSetButton1.ThemeName = "MetroLite";
+            this.metroSetButton1.Click += new System.EventHandler(this.metroSetButton1_Click);
             // 
             // LoginPanel
             // 
