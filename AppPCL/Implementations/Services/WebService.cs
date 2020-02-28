@@ -6,6 +6,7 @@ using Firebase.Database.Query;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace AppPCL.Implementations.Services
 {
@@ -36,46 +37,45 @@ namespace AppPCL.Implementations.Services
                     return null;
             }
         }
-
-        private FirebaseObject<string> AddDataToServer(string data, DataType dataType)
+        private async Task<FirebaseObject<string>> AddDataToServerAsync(string data, DataType dataType)
         {
             if (dataType != DataType.Profile)
             {
-                var userData = firebaseClient.Child(GetDataTable(dataType)).PostAsync(data).Result;
+                var userData = await firebaseClient.Child(GetDataTable(dataType)).PostAsync(data);
                 return null;
             }
             else
-                return firebaseClient.Child(GetDataTable(dataType)).PostAsync(data).Result;
+                return await firebaseClient.Child(GetDataTable(dataType)).PostAsync(data);
         }
-
-        public void UpdateUserProfile(IUserProfile profile)
+        public async Task UpdateUserProfileAsync(IUserProfile profile)
         {
             var data = JsonConvert.SerializeObject(profile);
-            firebaseClient
+            await firebaseClient
                 .Child("users")
                 .Child(StaticHolders.Instance.CurrentUserKey)
                 .Child(ProfileTable)
                 .PutAsync(data);
         }
-
         #region Setters
-        public void AddItemToDatabase<T>(T item , DataType dataType)
+        public async Task AddItemToDatabaseAsync<T>(T item , DataType dataType)
         {
             var data = JsonConvert.SerializeObject(item);
-            AddDataToServer(data, dataType);
+            await AddDataToServerAsync(data, dataType);
         }
         #endregion
         #region Getters
-        public List<IMessage> GetAllMessages() 
+        public async Task<List<IMessage>> GetAllMessagesAsync() 
         {
-            var users = firebaseClient
+            var users = await firebaseClient
                 .Child(MessageTable).
-                OnceAsync<MessageConversator>()
-                .Result
+                OnceAsync<MessageConversator>();
+
+                var ConvertedMessages = 
+                users
                 .Select(obj => obj.Object)
                 .ToList();
 
-            List<IMessage> AbstractCollection = users.Select(o => new Message()
+            List<IMessage> AbstractCollection = ConvertedMessages.Select(o => new Message()
             {
                 MessageFrom = o.MessageFrom,
                 MessageTo = o.MessageTo,
@@ -85,12 +85,12 @@ namespace AppPCL.Implementations.Services
 
             return AbstractCollection;
         }
-        public List<IUserProfile> GetUserProfiles()
+        public async Task<List<IUserProfile>> GetUserProfilesAsync()
         {
-            var users = firebaseClient
+            var fusers = await firebaseClient
                 .Child(MessageTable).
-                OnceAsync<UserProfileConversator>()
-                .Result
+                OnceAsync<UserProfileConversator>();
+            var users = fusers
                 .Select(obj => obj.Object)
                 .ToList();
 
@@ -108,12 +108,13 @@ namespace AppPCL.Implementations.Services
 
             return AbstractCollection;
         }
-        public List<INotification> GetNotifications()
+        public async Task<List<INotification>> GetNotificationsAsync()
         {
-            var users = firebaseClient
+            var notifications = await firebaseClient
                 .Child(MessageTable).
-                OnceAsync<NotificationConversator>()
-                .Result
+                OnceAsync<NotificationConversator>();
+
+                var users = notifications
                 .Select(obj => obj.Object)
                 .ToList();
 
@@ -126,12 +127,13 @@ namespace AppPCL.Implementations.Services
 
             return AbstractCollection;
         }
-        public List<IUserMiniProfileDTO> GetUserMiniProfileDTOs()
+        public async Task<List<IUserMiniProfileDTO>> GetUserMiniProfileDTOsAsync()
         {
-            var users = firebaseClient
+            var fusers = await firebaseClient
                 .Child(ProfileDTOTable).
-                OnceAsync<UserMiniProfileDTOConversator>()
-                .Result
+                OnceAsync<UserMiniProfileDTOConversator>();
+
+            var users = fusers   
                 .Select(obj => obj.Object)
                 .ToList();
 

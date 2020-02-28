@@ -36,7 +36,7 @@ namespace SocialApp.LoginRegistrations
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(NameBox.Text) || !string.IsNullOrEmpty(LastNameBox.Text) || 
                 !string.IsNullOrEmpty(PassBox.Text) || !string.IsNullOrEmpty(PassVBox.Text)
@@ -44,7 +44,8 @@ namespace SocialApp.LoginRegistrations
             {
                 if(PassBox.Text == PassVBox.Text)
                 {
-                    if (!userManager.CheckUserExistence(UserBox.Text))
+                    var checker = await userManager.CheckUserExistenceAsync(UserBox.Text);
+                    if (!checker)
                     {
                         if (!string.IsNullOrWhiteSpace(FileLocation.Text))
                         {
@@ -53,7 +54,7 @@ namespace SocialApp.LoginRegistrations
                         else
                             UserProfilePic = pictureBox1.ImageLocation;
 
-                        userManager.RegisterNewUser(NameBox.Text, LastNameBox.Text, UserBox.Text, PassVBox.Text, UserProfilePic);
+                        await userManager.RegisterNewUserAsync(NameBox.Text, LastNameBox.Text, UserBox.Text, PassVBox.Text, UserProfilePic);
                         MetroSetMessageBox.Show(this, "Registration was successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Hide();
                         loginPanel = new LoginPanel();

@@ -1,4 +1,5 @@
-﻿using Registration.Abstractions.Models;
+﻿using Firebase.Database;
+using Registration.Abstractions.Models;
 using Registration.Implementations.Models;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,9 @@ namespace Registration.Abstractions.Services
 {
     public interface IWebWorkerService
     {
-        void AddUserToDatabase(User user);
-        List<IUser> GetUsersFromDatabase();
-        int GetLatestID();
+        Task AddUserToDatabaseAsync(User user);
+        Task<List<FirebaseObject<T>>> GetFirebaseClientAsync<T>();
+        Task<List<IUser>> GetUsersFromDatabaseAsync();
+        Task<int> GetLatestIDAsync();
     }
 }

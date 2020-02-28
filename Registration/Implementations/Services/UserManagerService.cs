@@ -22,22 +22,24 @@ namespace Registration.Implementations.Services
             _UserManager = new UserProfileManager();
             _WebWorkerService = new WebWorkerService(); 
         }
-        public bool LoginUser(string _Email, string _Password)
+        public async Task<bool> LoginUserAsync(string _Email, string _Password)
         {
             IAuthenticationData userCredintals = new AuthenticationData()
             {
                 UserName = _Email,
                 Password = _Password,
             };
-            var user = _WebWorkerService.GetUsersFromDatabase().FirstOrDefault(o => 
+            var userToBeLoaded = await _WebWorkerService.GetUsersFromDatabaseAsync();
+                var user = userToBeLoaded.FirstOrDefault(o => 
             o.authenticationData.UserName == userCredintals.UserName 
             && o.authenticationData.Password == userCredintals.Password);
             if(user != null)
             {
-                var UserData = _WebWorkerService.GetFirebaseClient<UserDTO>();
+                var UserData = await _WebWorkerService.GetFirebaseClientAsync<UserDTO>();
                 StaticWebManager.Instance.userInstance = user;
                 StaticHolders.Instance.CurrentUser = user.UserProfileData;
-                StaticHolders.Instance.CurrentUserDTO = _WebService.GetUserMiniProfileDTOs().FirstOrDefault(o => o.ID == user.ID);
+                var holder = await _WebService.GetUserMiniProfileDTOsAsync();
+                StaticHolders.Instance.CurrentUserDTO = holder.FirstOrDefault(o => o.ID == user.ID);
                 StaticHolders.Instance.CurrentUserKey = UserData.FirstOrDefault(o => o.Object.ID == user.ID).Key;
                 StaticHolders.Instance.CurrentUserID = user.ID;
                 return true;
@@ -47,11 +49,12 @@ namespace Registration.Implementations.Services
                 return false;
             }
         }
-        public bool CheckUserExistence(string _UserName) 
+        public async Task<bool> CheckUserExistenceAsync(string _UserName) 
         {
-            return _WebWorkerService.GetUsersFromDatabase().FirstOrDefault(o => o.authenticationData.UserName == _UserName) != null ? true : false;
+            var holder = await _WebWorkerService.GetUsersFromDatabaseAsync();
+            return holder.FirstOrDefault(o => o.authenticationData.UserName == _UserName) != null ? true : false;
         }
-        public void RegisterNewUser(string _name, string _lastName, string _Email, string _password,string ImageURL)
+        public async Task RegisterNewUserAsync(string _name, string _lastName, string _Email, string _password,string ImageURL)
         {
             #region unnecessary 
             /*
@@ -62,18 +65,18 @@ namespace Registration.Implementations.Services
                 LastName = _lastName
             });*/
             #endregion
-            _WebService.AddItemToDatabase<UserMiniProfileDTO>(new UserMiniProfileDTO()
+            await _WebService.AddItemToDatabaseAsync<UserMiniProfileDTO>(new UserMiniProfileDTO()
             {
-                ID = _WebWorkerService.GetLatestID(),
+                ID = await _WebWorkerService.GetLatestIDAsync(),
                 Name = _name,
                 LastName = _lastName,
                 UserImage = ImageURL,
             }, DataType.ProfileDTO);
-            _WebWorkerService.AddUserToDatabase(new User()
+           await _WebWorkerService.AddUserToDatabaseAsync(new User()
             {
-                UserProfileData = _UserManager.CreateProfile(_WebWorkerService.GetLatestID(), _name, _lastName, ImageURL, DateTime.Now),
+                UserProfileData = _UserManager.CreateProfile(await _WebWorkerService.GetLatestIDAsync(), _name, _lastName, ImageURL, DateTime.Now),
                 authenticationData = new AuthenticationData() { UserName = _Email, Password = _password },
-                ID = _WebWorkerService.GetLatestID()
+                ID = await _WebWorkerService.GetLatestIDAsync()
             }) ;
            
         }

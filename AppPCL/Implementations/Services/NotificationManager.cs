@@ -19,10 +19,13 @@ namespace AppPCL.Implementations.Services
             profileManager = new UserProfileManager();
             webServices = new WebService();
         }
-        public void FriendRequestGenerator(IUserMiniProfileDTO From, int ToID)
+        public async void FriendRequestGenerator(IUserMiniProfileDTO From, int ToID)
         {
-            IUserProfile userProfile = profileManager.LoadUserProfileFromID(ToID);
-            IUserMiniProfileDTO userMiniProfile = webServices.GetUserMiniProfileDTOs().FirstOrDefault(o => o.ID == userProfile.ID);
+            IUserProfile userProfile = await profileManager.LoadUserProfileFromIDAsync(ToID);
+            var item = await webServices.GetUserMiniProfileDTOsAsync();
+            var UserDTO = item.FirstOrDefault(o => o.ID == userProfile.ID);
+            IUserMiniProfileDTO userMiniProfile = UserDTO;
+                
             userProfile.userNotifications.Add(new Notification()
             {
                 FromUser = From,

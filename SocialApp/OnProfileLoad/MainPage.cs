@@ -41,10 +41,10 @@ namespace SocialApp.OnProfileLoad
         {
            
         }
-        private void MainPage_Load(object sender, EventArgs e)
+        private async void MainPage_Load(object sender, EventArgs e)
         {
             string SampleProfilePic = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
-            ProfileDTOS = WebServices.GetUserMiniProfileDTOs();
+            ProfileDTOS = await WebServices.GetUserMiniProfileDTOsAsync();
 
             Point LastPicturePoint = new Point(17, -120);
             Point LastNameLabelPoint = new Point(177, -100);
@@ -116,10 +116,10 @@ namespace SocialApp.OnProfileLoad
             Application.Exit();
         }
 
-        private void metroSetTabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        private async void metroSetTabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string SampleProfilePic = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
-            ProfileDTOS = WebServices.GetUserMiniProfileDTOs();
+            ProfileDTOS = await WebServices.GetUserMiniProfileDTOsAsync();
 
             Point LastPicturePoint = new Point(17, -120);
             Point LastNameLabelPoint = new Point(177, -100);

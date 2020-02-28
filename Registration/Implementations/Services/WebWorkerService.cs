@@ -24,33 +24,34 @@ namespace Registration.Implementations.Services
         
         private const string UserTable = "users";
         
-        public void AddUserToDatabase(User user)
+        public async Task AddUserToDatabaseAsync(User user)
         {
             string Data = JsonConvert.SerializeObject(user);
-            var userData = client.Child("users").PostAsync(Data).Result;
+            var userData = await client.Child("users").PostAsync(Data);
 
             Log("Uploaded user to db");
         }
-        public List<FirebaseObject<T>> GetFirebaseClient<T>()
+        public async Task<List<FirebaseObject<T>>> GetFirebaseClientAsync<T>()
         {
-            var users = client
+            var users = await client
                 .Child(UserTable)
-                .OnceAsync<T>()
-                .Result
+                .OnceAsync<T>();
+            var collection = users
                 .ToList();
 
-            return users;
+            return collection;
         }
-        public List<IUser> GetUsersFromDatabase()
+        public async Task<List<IUser>> GetUsersFromDatabaseAsync()
         {
-            var users = client
+            var users =
+                await client
                 .Child(UserTable).
-                OnceAsync<UserDTO>()
-                .Result
+                OnceAsync<UserDTO>();
+                var ToBeRetrieved = users
                 .Select(obj => obj.Object)
                 .ToList();
 
-            List<IUser> AbstractCollection = users.Select(o => new User()
+            List<IUser> AbstractCollection = ToBeRetrieved.Select(o => new User()
             {
                 UserProfileData = o.UserProfileData,
                 ID = o.ID,
@@ -63,9 +64,9 @@ namespace Registration.Implementations.Services
 
             return AbstractCollection;
         }
-        public int GetLatestID()
+        public async Task<int> GetLatestIDAsync()
         {
-            var users = GetUsersFromDatabase();
+            var users = await GetUsersFromDatabaseAsync();
             if (users.Count != 0)
                 return users[users.Count-1].ID + 1;
             else

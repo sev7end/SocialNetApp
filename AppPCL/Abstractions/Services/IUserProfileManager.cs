@@ -9,11 +9,11 @@ namespace AppPCL.Abstractions.Services
 {
     public interface IUserProfileManager
     {
-        List<IUserMiniProfileDTO> GetUserDTOsByNames(string name, string lastname);
-        IUserProfile LoadUserProfileFromID(int ID);
-        void UpdateProfile(IUserProfile userProfile);
+        Task<List<IUserMiniProfileDTO>> GetUserDTOsByNamesAsync(string name, string lastname);
+        Task<IUserProfile> LoadUserProfileFromIDAsync(int ID);
+        Task UpdateProfileAsync(IUserProfile userProfile);
         IUserProfile CreateProfile(int _ID, string _Name, string _LastName, string _ImageURL, DateTime _DateOfBirth);
-        List<IUserMiniProfileDTO> GetUserFriends(int ID);
-        IUserProfile LoadUserProfileFromDTO(IUserMiniProfileDTO userProfileDTO);
+        Task<List<IUserMiniProfileDTO>> GetUserFriendsAsync(int ID);
+        Task<IUserProfile> LoadUserProfileFromDTOAsync(IUserMiniProfileDTO userProfileDTO);
     }
 }

@@ -10,10 +10,11 @@ namespace AppPCL.Abstractions.Services
 {
     public interface IWebServices
     {
-        List<IUserProfile> GetUserProfiles();
-        List<INotification> GetNotifications();
-        List<IUserMiniProfileDTO> GetUserMiniProfileDTOs();
-        void UpdateUserProfile(IUserProfile profile);
-        void AddItemToDatabase<T>(T item, DataType dataType);
+        Task<List<IMessage>> GetAllMessagesAsync();
+        Task<List<IUserProfile>> GetUserProfilesAsync();
+        Task<List<INotification>> GetNotificationsAsync();
+        Task<List<IUserMiniProfileDTO>> GetUserMiniProfileDTOsAsync();
+        Task UpdateUserProfileAsync(IUserProfile profile);
+        Task AddItemToDatabaseAsync<T>(T item, DataType dataType);
     }
 }

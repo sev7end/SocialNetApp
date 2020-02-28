@@ -32,11 +32,11 @@ namespace SocialApp.LoginRegistrations
             registerPanel.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             bool Login = false;
             if (!string.IsNullOrEmpty(UserBox.Text) || !string.IsNullOrEmpty(PassBox.Text))
-                Login = UserService.LoginUser(UserBox.Text, PassBox.Text);
+                Login = await UserService.LoginUserAsync(UserBox.Text, PassBox.Text);
             else
                 MessageBox.Show("Fill all the boxes");
 

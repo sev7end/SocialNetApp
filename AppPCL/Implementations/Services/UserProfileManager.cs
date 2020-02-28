@@ -16,31 +16,35 @@ namespace AppPCL.Implementations.Services
         {
             webServices = new WebService();
         }
-        public List<IUserMiniProfileDTO> GetUserFriends(int ID)
+        public async Task<List<IUserMiniProfileDTO>> GetUserFriendsAsync(int ID)
         {
-            var user = webServices.GetUserProfiles().FirstOrDefault(o => o.ID == ID);
-            return user.userFriends;
+            var user = await webServices.GetUserProfilesAsync();
+            var ToBeRetrieved = user.FirstOrDefault(o => o.ID == ID);
+            return ToBeRetrieved.userFriends;
         }
-        public List<IUserMiniProfileDTO> GetUserDTOsByNames(string name, string lastname)
+        public async Task<List<IUserMiniProfileDTO>> GetUserDTOsByNamesAsync(string name, string lastname)
         {
-            var user = webServices.GetUserMiniProfileDTOs().Where(o => o.Name == name || o.LastName.ToLower() == lastname.ToLower() 
+            var user = await webServices.GetUserMiniProfileDTOsAsync();
+            var ToBeRetrieved = user.Where(o => o.Name == name || o.LastName.ToLower() == lastname.ToLower() 
             || $"{name.ToLower()}" == $"{o.Name.ToLower()} {o.LastName.ToLower()}").ToList();
-            return user;
+            return ToBeRetrieved;
         }
-        public IUserProfile LoadUserProfileFromID(int ID)
+        public async Task<IUserProfile> LoadUserProfileFromIDAsync(int ID)
         {
-            var user = webServices.GetUserProfiles().FirstOrDefault(o => o.ID == ID);
-            return user;
+            var user = await webServices.GetUserProfilesAsync();
+            var ToBeRetrieved = user.FirstOrDefault(o => o.ID == ID);
+            return ToBeRetrieved;
         }
-        public IUserProfile LoadUserProfileFromDTO(IUserMiniProfileDTO userProfileDTO)
+        public async Task<IUserProfile> LoadUserProfileFromDTOAsync(IUserMiniProfileDTO userProfileDTO)
         {
-            var user = webServices.GetUserProfiles().FirstOrDefault(o => o.ID == userProfileDTO.ID);
-            return user;
+            var user = await webServices.GetUserProfilesAsync();
+            var ToBeRetrieved = user.FirstOrDefault(o => o.ID == userProfileDTO.ID);
+            return ToBeRetrieved;
         }
 
-        public void UpdateProfile(IUserProfile userProfile)
+        public async Task UpdateProfileAsync(IUserProfile userProfile)
         {
-            webServices.UpdateUserProfile(userProfile);
+            await webServices.UpdateUserProfileAsync(userProfile);
         }
         
         public IUserProfile CreateProfile(int _ID, string _Name, string _LastName, string _ImageURL, DateTime _DateOfBirth)
