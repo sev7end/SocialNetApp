@@ -19,6 +19,7 @@ namespace SocialApp.LoginRegistrations
         private LoginPanel loginPanel;
         private PictureManagerServices pictureManager;
         private string UserProfilePic;
+        private string UserGender; 
         public RegisterPanel()
         {
             InitializeComponent();
@@ -38,9 +39,17 @@ namespace SocialApp.LoginRegistrations
 
         private async void button1_Click(object sender, EventArgs e)
         {
+            try{
+                UserGender = GenderCombo.SelectedValue.ToString();
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Select your gender!");
+                return;
+            }
             if (!string.IsNullOrEmpty(NameBox.Text) || !string.IsNullOrEmpty(LastNameBox.Text) || 
                 !string.IsNullOrEmpty(PassBox.Text) || !string.IsNullOrEmpty(PassVBox.Text)
-                || !string.IsNullOrEmpty(UserBox.Text)) 
+                || !string.IsNullOrEmpty(UserBox.Text) || !string.IsNullOrEmpty(UserGender)) 
             {
                 if(PassBox.Text == PassVBox.Text)
                 {
@@ -54,7 +63,7 @@ namespace SocialApp.LoginRegistrations
                         else
                             UserProfilePic = pictureBox1.ImageLocation;
 
-                        await userManager.RegisterNewUserAsync(NameBox.Text, LastNameBox.Text, UserBox.Text, PassVBox.Text, UserProfilePic);
+                        await userManager.RegisterNewUserAsync(NameBox.Text, LastNameBox.Text, UserBox.Text, PassVBox.Text, UserProfilePic,UserGender);
                         MetroSetMessageBox.Show(this, "Registration was successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Hide();
                         loginPanel = new LoginPanel();
@@ -76,7 +85,7 @@ namespace SocialApp.LoginRegistrations
                 MetroSetMessageBox.Show(this, "Fill all the gaps!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        #region
         //private void UploadButton_Click(object sender, EventArgs e)
         //{
         //    //if (!string.IsNullOrWhiteSpace(FileLocation.Text))
@@ -88,6 +97,7 @@ namespace SocialApp.LoginRegistrations
         //    //else
         //    //    MessageBox.Show("Error, please choose a file");
         //}
+        #endregion
 
         private void BrowseButton_Click(object sender, EventArgs e)
         {

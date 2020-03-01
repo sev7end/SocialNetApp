@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppPCL.Abstractions.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace AppPCL.Implementations.Models
         public string Name { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public Gender UserGender { get; set; }
         public string UserImage { get; set; }
     }
 }

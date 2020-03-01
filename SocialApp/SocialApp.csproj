@@ -61,6 +61,12 @@
     <Compile Include="LoginRegistrations\RegisterPanel.Designer.cs">
       <DependentUpon>RegisterPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\DTOPreview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Models\DTOPreview.Designer.cs">
+      <DependentUpon>DTOPreview.cs</DependentUpon>
+    </Compile>
     <Compile Include="OnProfileLoad\MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginRegistrations\RegisterPanel.resx">
       <DependentUpon>RegisterPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\DTOPreview.resx">
+      <DependentUpon>DTOPreview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OnProfileLoad\MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>

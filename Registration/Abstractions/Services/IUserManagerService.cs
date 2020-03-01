@@ -10,7 +10,7 @@ namespace Registration.Abstractions.Services
 {
     public interface IUserManagerService
     {
-        Task RegisterNewUserAsync(string _name, string _lastName, string _Email, string _password, string ImageURL);
+        Task RegisterNewUserAsync(string _name, string _lastName, string _Email, string _password, string ImageURL, string _UserGender);
         Task<bool> CheckUserExistenceAsync(string _UserName);
         Task<bool> LoginUserAsync(string _Email, string _Password);
     }

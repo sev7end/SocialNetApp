@@ -9,6 +9,7 @@ using AppPCL.Implementations.Models;
 using MetroSet_UI;
 using MetroSet_UI.Forms;
 using MetroSet_UI.Controls;
+using SocialApp.Models;
 
 namespace SocialApp.OnProfileLoad
 {
@@ -46,7 +47,18 @@ namespace SocialApp.OnProfileLoad
             string SampleProfilePic = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
             ProfileDTOS = await WebServices.GetUserMiniProfileDTOsAsync();
 
-            Point LastPicturePoint = new Point(17, -120);
+            foreach(var user in ProfileDTOS)
+            {
+                DTOPreview UserVisual = default;
+                UserVisual = new DTOPreview(user.Name,user.LastName,user.UserImage,user.ID,user.UserGender);
+                ProfilesPanel.Controls.Add(UserVisual);
+                //UserVisual.BringToFront();
+                UserVisual.Dock = DockStyle.Top;
+                UserVisual.ForeColor = Color.Black;
+                
+                ProfilesPanel.AutoScroll = true;
+            }
+           /* Point LastPicturePoint = new Point(17, -120);
             Point LastNameLabelPoint = new Point(177, -100);
             Point LastBornPoint = new Point(177, -50);
             Point SendMessagePoint = new Point(782, -100);
@@ -108,7 +120,7 @@ namespace SocialApp.OnProfileLoad
                 ProfilesPanel.Controls.Add(SendMessageButton);
                 ProfilesPanel.Controls.Add(AddFriendButton);
                 ProfilesPanel.AutoScroll = true;
-            }
+            }*/
         }
 
         private void metroSetButton1_Click(object sender, EventArgs e)
@@ -219,6 +231,11 @@ namespace SocialApp.OnProfileLoad
                 ProfileLink.LinkColor = Color.Black;
                 ProfilesPanel.Style = MetroSet_UI.Design.Style.Light;
             }
+        }
+
+        private void ProfilesPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

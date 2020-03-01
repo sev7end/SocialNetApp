@@ -33,7 +33,7 @@ namespace AppPCL.Implementations.Services
                 IsAccepted = false
             });
 
-
+            //TODO: Finish this off
         }
 
         public List<INotificationsManager> LoadUserNotifications(IUserMiniProfileDTO userMiniProfileDTO)

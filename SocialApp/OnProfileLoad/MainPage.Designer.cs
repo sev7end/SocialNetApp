@@ -147,14 +147,16 @@ namespace SocialApp.OnProfileLoad
             this.ProfilesPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
             this.ProfilesPanel.BorderThickness = 1;
             this.ProfilesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProfilesPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.ProfilesPanel.Location = new System.Drawing.Point(0, 0);
             this.ProfilesPanel.Name = "ProfilesPanel";
-            this.ProfilesPanel.Size = new System.Drawing.Size(1009, 680);
+            this.ProfilesPanel.Size = new System.Drawing.Size(1009, 654);
             this.ProfilesPanel.Style = MetroSet_UI.Design.Style.Light;
             this.ProfilesPanel.StyleManager = null;
             this.ProfilesPanel.TabIndex = 16;
             this.ProfilesPanel.ThemeAuthor = "Narwin";
             this.ProfilesPanel.ThemeName = "MetroLite";
+            this.ProfilesPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ProfilesPanel_Paint);
             // 
             // textBox1
             // 
@@ -223,7 +225,7 @@ namespace SocialApp.OnProfileLoad
             this.metroSetTabControl1.Location = new System.Drawing.Point(192, 84);
             this.metroSetTabControl1.Name = "metroSetTabControl1";
             this.metroSetTabControl1.SelectedIndex = 0;
-            this.metroSetTabControl1.Size = new System.Drawing.Size(1017, 726);
+            this.metroSetTabControl1.Size = new System.Drawing.Size(1017, 700);
             this.metroSetTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.metroSetTabControl1.Speed = 20;
             this.metroSetTabControl1.Style = MetroSet_UI.Design.Style.Light;
@@ -243,7 +245,7 @@ namespace SocialApp.OnProfileLoad
             this.metroSetTabPage1.ImageKey = null;
             this.metroSetTabPage1.Location = new System.Drawing.Point(4, 42);
             this.metroSetTabPage1.Name = "metroSetTabPage1";
-            this.metroSetTabPage1.Size = new System.Drawing.Size(1009, 680);
+            this.metroSetTabPage1.Size = new System.Drawing.Size(1009, 654);
             this.metroSetTabPage1.Style = MetroSet_UI.Design.Style.Light;
             this.metroSetTabPage1.StyleManager = null;
             this.metroSetTabPage1.TabIndex = 0;
@@ -370,7 +372,7 @@ namespace SocialApp.OnProfileLoad
             this.ProfileLink.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ProfileLink.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.ProfileLink.LinkColor = System.Drawing.Color.Black;
-            this.ProfileLink.Location = new System.Drawing.Point(44, 237);
+            this.ProfileLink.Location = new System.Drawing.Point(5, 234);
             this.ProfileLink.Name = "ProfileLink";
             this.ProfileLink.Size = new System.Drawing.Size(91, 22);
             this.ProfileLink.TabIndex = 21;
@@ -435,5 +437,6 @@ namespace SocialApp.OnProfileLoad
         private MetroSetSwitch metroSetSwitch1;
         private MetroSetLabel metroSetLabel1;
         private LinkLabel ProfileLink;
+        
     }
 }

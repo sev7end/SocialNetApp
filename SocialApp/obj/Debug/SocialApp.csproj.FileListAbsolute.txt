@@ -53,6 +53,7 @@ H:\DledRepos\Registration\SocialApp\bin\Debug\SocialApp.exe.config
 H:\DledRepos\Registration\SocialApp\bin\Debug\SocialApp.exe
 H:\DledRepos\Registration\SocialApp\bin\Debug\SocialApp.pdb
 H:\DledRepos\Registration\SocialApp\bin\Debug\AppPCL.dll
+H:\DledRepos\Registration\SocialApp\bin\Debug\MetroSet UI.dll
 H:\DledRepos\Registration\SocialApp\bin\Debug\Registration.dll
 H:\DledRepos\Registration\SocialApp\bin\Debug\CloudinaryDotNet.dll
 H:\DledRepos\Registration\SocialApp\bin\Debug\Firebase.dll
@@ -78,4 +79,4 @@ H:\DledRepos\Registration\SocialApp\obj\Debug\SocialApp.csproj.GenerateResource.
 H:\DledRepos\Registration\SocialApp\obj\Debug\SocialApp.csproj.CopyComplete
 H:\DledRepos\Registration\SocialApp\obj\Debug\SocialApp.exe
 H:\DledRepos\Registration\SocialApp\obj\Debug\SocialApp.pdb
-H:\DledRepos\Registration\SocialApp\bin\Debug\MetroSet UI.dll
+H:\DledRepos\Registration\SocialApp\obj\Debug\SocialApp.Models.DTOPreview.resources

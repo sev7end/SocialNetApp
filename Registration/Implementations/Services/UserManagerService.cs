@@ -1,4 +1,5 @@
-﻿using AppPCL.Implementations.Models;
+﻿using AppPCL.Abstractions.Models;
+using AppPCL.Implementations.Models;
 using AppPCL.Implementations.Services;
 using Newtonsoft.Json;
 using Registration.Abstractions.Models;
@@ -54,7 +55,7 @@ namespace Registration.Implementations.Services
             var holder = await _WebWorkerService.GetUsersFromDatabaseAsync();
             return holder.FirstOrDefault(o => o.authenticationData.UserName == _UserName) != null ? true : false;
         }
-        public async Task RegisterNewUserAsync(string _name, string _lastName, string _Email, string _password,string ImageURL)
+        public async Task RegisterNewUserAsync(string _name, string _lastName, string _Email, string _password,string ImageURL,string _UserGender)
         {
             #region unnecessary 
             /*
@@ -65,13 +66,16 @@ namespace Registration.Implementations.Services
                 LastName = _lastName
             });*/
             #endregion
+            Gender gender;
+            Enum.TryParse(_UserGender, out gender);
             await _WebService.AddItemToDatabaseAsync<UserMiniProfileDTO>(new UserMiniProfileDTO()
             {
                 ID = await _WebWorkerService.GetLatestIDAsync(),
                 Name = _name,
+                UserGender = gender,
                 LastName = _lastName,
                 UserImage = ImageURL,
-            }, DataType.ProfileDTO);
+            }, DataType.ProfileDTO) ;
            await _WebWorkerService.AddUserToDatabaseAsync(new User()
             {
                 UserProfileData = _UserManager.CreateProfile(await _WebWorkerService.GetLatestIDAsync(), _name, _lastName, ImageURL, DateTime.Now),

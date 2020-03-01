@@ -100,6 +100,7 @@ namespace AppPCL.Implementations.Services
                 Name = o.Name,
                 LastName = o.LastName,
                 DateOfBirth = o.DateOfBirth,
+                UserGender = o.UserGender,
                 UserImage = o.UserImage,
                 userFriends = o.userFriends.Cast<IUserMiniProfileDTO>().ToList(),
                 userMessages = o.userMessages.Cast<IMessage>().ToList(),
@@ -141,6 +142,7 @@ namespace AppPCL.Implementations.Services
             {
                ID = o.ID,
                DateOfBirth = o.DateOfBirth, 
+               UserGender = o.UserGender,
                LastName = o.LastName,
                Name = o.Name,
                UserImage = o.UserImage

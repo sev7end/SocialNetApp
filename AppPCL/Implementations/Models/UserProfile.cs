@@ -13,6 +13,7 @@ namespace AppPCL.Implementations.Models
         public string Name { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public Gender UserGender { get; set; }
         public string UserImage { get; set; }
         public List<IUserMiniProfileDTO> userFriends { get; set; }
         public List<INotification> userNotifications { get; set; }

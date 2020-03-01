@@ -12,6 +12,7 @@ namespace AppPCL.Abstractions.Models
         string Name { get; set; }
         string LastName { get; set; }
         DateTime DateOfBirth { get; set; }
+        Gender UserGender { get; set; }
         string UserImage { get; set; }
     }
 }

@@ -67,6 +67,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstractions\Models\Gender.cs" />
     <Compile Include="Abstractions\Models\IMessage.cs" />
     <Compile Include="Abstractions\Models\INotification.cs" />
     <Compile Include="Abstractions\Models\IUserMiniProfileDTO.cs" />
