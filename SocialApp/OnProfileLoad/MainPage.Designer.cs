@@ -156,12 +156,10 @@ namespace SocialApp.OnProfileLoad
             this.ProfilesPanel.TabIndex = 16;
             this.ProfilesPanel.ThemeAuthor = "Narwin";
             this.ProfilesPanel.ThemeName = "MetroLite";
-            this.ProfilesPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ProfilesPanel_Paint);
             // 
             // textBox1
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.AutoCompleteCustomSource = null;
             this.textBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.textBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
@@ -190,6 +188,7 @@ namespace SocialApp.OnProfileLoad
             // 
             // metroSetButton1
             // 
+            this.metroSetButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.metroSetButton1.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.metroSetButton1.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.metroSetButton1.DisabledForeColor = System.Drawing.Color.Gray;
@@ -216,11 +215,14 @@ namespace SocialApp.OnProfileLoad
             // 
             // metroSetTabControl1
             // 
+            this.metroSetTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.metroSetTabControl1.AnimateEasingType = MetroSet_UI.Enums.EasingType.CubeOut;
             this.metroSetTabControl1.AnimateTime = 200;
             this.metroSetTabControl1.Controls.Add(this.metroSetTabPage1);
             this.metroSetTabControl1.Controls.Add(this.metroSetTabPage2);
-            this.metroSetTabControl1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroSetTabControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.metroSetTabControl1.ItemSize = new System.Drawing.Size(100, 38);
             this.metroSetTabControl1.Location = new System.Drawing.Point(192, 84);
             this.metroSetTabControl1.Name = "metroSetTabControl1";
@@ -262,7 +264,7 @@ namespace SocialApp.OnProfileLoad
             this.metroSetTabPage2.ImageKey = null;
             this.metroSetTabPage2.Location = new System.Drawing.Point(4, 42);
             this.metroSetTabPage2.Name = "metroSetTabPage2";
-            this.metroSetTabPage2.Size = new System.Drawing.Size(1009, 680);
+            this.metroSetTabPage2.Size = new System.Drawing.Size(1009, 654);
             this.metroSetTabPage2.Style = MetroSet_UI.Design.Style.Light;
             this.metroSetTabPage2.StyleManager = null;
             this.metroSetTabPage2.TabIndex = 1;
@@ -279,7 +281,7 @@ namespace SocialApp.OnProfileLoad
             this.FriendsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FriendsPanel.Location = new System.Drawing.Point(0, 0);
             this.FriendsPanel.Name = "FriendsPanel";
-            this.FriendsPanel.Size = new System.Drawing.Size(1009, 680);
+            this.FriendsPanel.Size = new System.Drawing.Size(1009, 654);
             this.FriendsPanel.Style = MetroSet_UI.Design.Style.Light;
             this.FriendsPanel.StyleManager = null;
             this.FriendsPanel.TabIndex = 0;
@@ -288,6 +290,7 @@ namespace SocialApp.OnProfileLoad
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.button1.BackgroundImage = global::SocialApp.Properties.Resources.the_loop_png_2;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -301,6 +304,7 @@ namespace SocialApp.OnProfileLoad
             // 
             // metroSetButton2
             // 
+            this.metroSetButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.metroSetButton2.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.metroSetButton2.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.metroSetButton2.DisabledForeColor = System.Drawing.Color.Gray;
@@ -362,7 +366,6 @@ namespace SocialApp.OnProfileLoad
             this.metroSetLabel1.Text = "Dark Mode";
             this.metroSetLabel1.ThemeAuthor = "Narwin";
             this.metroSetLabel1.ThemeName = "MetroLite";
-            this.metroSetLabel1.Click += new System.EventHandler(this.metroSetLabel1_Click);
             // 
             // ProfileLink
             // 
@@ -383,7 +386,6 @@ namespace SocialApp.OnProfileLoad
             // 
             // MainPage
             // 
-            this.AllowResize = false;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ClientSize = new System.Drawing.Size(1220, 789);
@@ -400,7 +402,6 @@ namespace SocialApp.OnProfileLoad
             this.Controls.Add(this.MessagesButton);
             this.Controls.Add(this.CurrentProfilePictureBox);
             this.ImeMode = System.Windows.Forms.ImeMode.Close;
-            this.MaximumSize = new System.Drawing.Size(1220, 789);
             this.MinimumSize = new System.Drawing.Size(1220, 789);
             this.Name = "MainPage";
             this.Padding = new System.Windows.Forms.Padding(2, 60, 2, 2);

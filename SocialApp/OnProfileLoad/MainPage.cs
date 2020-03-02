@@ -10,6 +10,7 @@ using MetroSet_UI;
 using MetroSet_UI.Forms;
 using MetroSet_UI.Controls;
 using SocialApp.Models;
+using System.Threading.Tasks;
 
 namespace SocialApp.OnProfileLoad
 {
@@ -34,93 +35,25 @@ namespace SocialApp.OnProfileLoad
         {
 
         }
-        private void AddFriendButton_Click(object sender, EventArgs e)
+        private void LoadProfiles(List<IUserMiniProfileDTO> userProfiles,MetroSetPanel panel)
         {
-            
-        }
-        private void SendMessageButton_Click(object sender, EventArgs e)
-        {
-           
+
+            foreach (var user in userProfiles)
+            {
+                DTOPreview UserVisual = default;
+                UserVisual = new DTOPreview(user.Name, user.LastName, user.UserImage, user.ID, user.UserGender);
+                UserVisual.Anchor = ((AnchorStyles)((AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left)));
+                panel.Controls.Add(UserVisual);
+                UserVisual.Dock = DockStyle.Top;
+                UserVisual.ForeColor = Color.Black;
+
+                panel.AutoScroll = true;
+            }
         }
         private async void MainPage_Load(object sender, EventArgs e)
         {
-            string SampleProfilePic = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
             ProfileDTOS = await WebServices.GetUserMiniProfileDTOsAsync();
-
-            foreach(var user in ProfileDTOS)
-            {
-                DTOPreview UserVisual = default;
-                UserVisual = new DTOPreview(user.Name,user.LastName,user.UserImage,user.ID,user.UserGender);
-                ProfilesPanel.Controls.Add(UserVisual);
-                //UserVisual.BringToFront();
-                UserVisual.Dock = DockStyle.Top;
-                UserVisual.ForeColor = Color.Black;
-                
-                ProfilesPanel.AutoScroll = true;
-            }
-           /* Point LastPicturePoint = new Point(17, -120);
-            Point LastNameLabelPoint = new Point(177, -100);
-            Point LastBornPoint = new Point(177, -50);
-            Point SendMessagePoint = new Point(782, -100);
-            Point AddFriendPoint = new Point(782, -50);
-
-            Size ButtonSizes = new Size(157, 47);
-            Size PictureSize = new Size(144, 131);
-
-            foreach (var user in ProfileDTOS)
-            {
-
-                PictureBox pictureBox = new PictureBox();
-                MetroSetLabel NameAndLastName = new MetroSetLabel();
-                MetroSetLabel DateOfBirthLabel = new MetroSetLabel();
-                MetroSetButton SendMessageButton = new MetroSetButton();
-                Button AddFriendButton = new Button();
-                Font font = new Font("Arial", 10, FontStyle.Regular);
-
-                pictureBox.Location = new Point(LastPicturePoint.X, LastPicturePoint.Y + 150);
-                pictureBox.Name = "pictureBox1";
-                if (user.UserImage == "")
-                    pictureBox.ImageLocation = SampleProfilePic;
-                else
-                    pictureBox.ImageLocation = user.UserImage;
-                pictureBox.Size = PictureSize;
-                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                LastPicturePoint = pictureBox.Location;
-
-                NameAndLastName.Text = $"{user.Name} {user.LastName}";
-                NameAndLastName.AutoSize = true;
-                NameAndLastName.Font = font;
-                NameAndLastName.Location = new Point(LastNameLabelPoint.X, LastNameLabelPoint.Y + 150);
-                LastNameLabelPoint = NameAndLastName.Location;
-
-                DateOfBirthLabel.Text = user.DateOfBirth.ToString();
-                DateOfBirthLabel.AutoSize = true;
-                DateOfBirthLabel.Font = font;
-                DateOfBirthLabel.Location = new Point(LastBornPoint.X, LastBornPoint.Y + 150);
-                LastBornPoint = DateOfBirthLabel.Location;
-
-                SendMessageButton.Text = "Send Message";
-                SendMessageButton.Location = new Point(SendMessagePoint.X, SendMessagePoint.Y + 150);
-                SendMessageButton.Size = ButtonSizes;
-                SendMessageButton.Click += (s, eventarg) => { MetroSetMessageBox.Show(this, "Message Sent!"); };
-                SendMessageButton.Tag = user.ID;
-                SendMessagePoint = SendMessageButton.Location;
-
-                AddFriendButton.Text = "Add Friend";
-                AddFriendButton.Location = new Point(AddFriendPoint.X, AddFriendPoint.Y + 150);
-                AddFriendButton.Size = ButtonSizes;
-                AddFriendButton.Click += (s, eventarg) => { MetroSetMessageBox.Show(this, "Friend Request Sent!"); };
-                AddFriendButton.Tag = user.ID;
-                AddFriendPoint = AddFriendButton.Location;
-
-                ((System.ComponentModel.ISupportInitialize)(pictureBox)).EndInit();
-                ProfilesPanel.Controls.Add(pictureBox);
-                ProfilesPanel.Controls.Add(NameAndLastName);
-                ProfilesPanel.Controls.Add(DateOfBirthLabel);
-                ProfilesPanel.Controls.Add(SendMessageButton);
-                ProfilesPanel.Controls.Add(AddFriendButton);
-                ProfilesPanel.AutoScroll = true;
-            }*/
+            LoadProfiles(ProfileDTOS,ProfilesPanel);
         }
 
         private void metroSetButton1_Click(object sender, EventArgs e)
@@ -130,72 +63,8 @@ namespace SocialApp.OnProfileLoad
 
         private async void metroSetTabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string SampleProfilePic = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
             ProfileDTOS = await WebServices.GetUserMiniProfileDTOsAsync();
-
-            Point LastPicturePoint = new Point(17, -120);
-            Point LastNameLabelPoint = new Point(177, -100);
-            Point LastBornPoint = new Point(177, -50);
-            Point SendMessagePoint = new Point(782, -100);
-            Point AddFriendPoint = new Point(782, -50);
-
-            Size ButtonSizes = new Size(157, 47);
-            Size PictureSize = new Size(144, 131);
-
-            foreach (var user in ProfileDTOS)
-            {
-
-                PictureBox pictureBox = new PictureBox();
-                MetroSetLabel NameAndLastName = new MetroSetLabel();
-                MetroSetLabel DateOfBirthLabel = new MetroSetLabel();
-                MetroSetButton SendMessageButton = new MetroSetButton();
-                Button AddFriendButton = new Button();
-                Font font = new Font("Arial", 10, FontStyle.Regular);
-
-                pictureBox.Location = new Point(LastPicturePoint.X, LastPicturePoint.Y + 150);
-                pictureBox.Name = "pictureBox1";
-                if (user.UserImage == "")
-                    pictureBox.ImageLocation = SampleProfilePic;
-                else
-                    pictureBox.ImageLocation = user.UserImage;
-                pictureBox.Size = PictureSize;
-                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                LastPicturePoint = pictureBox.Location;
-
-                NameAndLastName.Text = $"{user.Name} {user.LastName}";
-                NameAndLastName.AutoSize = true;
-                NameAndLastName.Font = font;
-                NameAndLastName.Location = new Point(LastNameLabelPoint.X, LastNameLabelPoint.Y + 150);
-                LastNameLabelPoint = NameAndLastName.Location;
-
-                DateOfBirthLabel.Text = user.DateOfBirth.ToString();
-                DateOfBirthLabel.AutoSize = true;
-                DateOfBirthLabel.Font = font;
-                DateOfBirthLabel.Location = new Point(LastBornPoint.X, LastBornPoint.Y + 150);
-                LastBornPoint = DateOfBirthLabel.Location;
-
-                SendMessageButton.Text = "Send Message";
-                SendMessageButton.Location = new Point(SendMessagePoint.X, SendMessagePoint.Y + 150);
-                SendMessageButton.Size = ButtonSizes;
-                SendMessageButton.Click += (s, eventarg) => { MetroSetMessageBox.Show(this, "Message Sent!"); };
-                SendMessageButton.Tag = user.ID;
-                SendMessagePoint = SendMessageButton.Location;
-
-                AddFriendButton.Text = "Add Friend";
-                AddFriendButton.Location = new Point(AddFriendPoint.X, AddFriendPoint.Y + 150);
-                AddFriendButton.Size = ButtonSizes;
-                AddFriendButton.Click += (s, eventarg) => { MetroSetMessageBox.Show(this, "Friend Request Sent!"); };
-                AddFriendButton.Tag = user.ID;
-                AddFriendPoint = AddFriendButton.Location;
-
-                ((System.ComponentModel.ISupportInitialize)(pictureBox)).EndInit();
-                FriendsPanel.Controls.Add(pictureBox);
-                FriendsPanel.Controls.Add(NameAndLastName);
-                FriendsPanel.Controls.Add(DateOfBirthLabel);
-                FriendsPanel.Controls.Add(SendMessageButton);
-                FriendsPanel.Controls.Add(AddFriendButton);
-                FriendsPanel.AutoScroll = true;
-            }
+            LoadProfiles(ProfileDTOS,FriendsPanel);
         }
 
         private void metroSetButton2_Click(object sender, EventArgs e)
@@ -205,12 +74,6 @@ namespace SocialApp.OnProfileLoad
             LoginRegistrations.LoginPanel loginPanel = new LoginRegistrations.LoginPanel();
             loginPanel.Show();
         }
-
-        private void metroSetLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ProfileLink_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MyProfilePage page = new MyProfilePage();
@@ -223,7 +86,7 @@ namespace SocialApp.OnProfileLoad
             {
                 this.Style = MetroSet_UI.Design.Style.Dark;
                 ProfileLink.LinkColor = Color.White;
-                //ProfilesPanel.Style = MetroSet_UI.Design.Style.Dark;
+                
             }
             else
             {
@@ -231,11 +94,6 @@ namespace SocialApp.OnProfileLoad
                 ProfileLink.LinkColor = Color.Black;
                 ProfilesPanel.Style = MetroSet_UI.Design.Style.Light;
             }
-        }
-
-        private void ProfilesPanel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
