@@ -95,5 +95,10 @@ namespace SocialApp.OnProfileLoad
                 ProfilesPanel.Style = MetroSet_UI.Design.Style.Light;
             }
         }
+
+        private void MessagesLabel_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Messages");
+        }
     }
 }

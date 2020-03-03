@@ -11,6 +11,8 @@ namespace AppPCL.Implementations.Models
     {
         public IUserMiniProfileDTO FromUser { get; set; }
         public IUserMiniProfileDTO ToUser { get; set; }
-        public bool IsAccepted { get; set; }
+        public bool IsSeen { get; set; }
+        public bool IsReacted { get; set; }
+        public string NotificationKey { get; set; }
     }
 }

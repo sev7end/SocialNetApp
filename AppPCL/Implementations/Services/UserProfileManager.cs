@@ -47,7 +47,7 @@ namespace AppPCL.Implementations.Services
             await webServices.UpdateUserProfileAsync(userProfile);
         }
         
-        public IUserProfile CreateProfile(int _ID, string _Name, string _LastName, string _ImageURL, DateTime _DateOfBirth)
+        public IUserProfile CreateProfile(int _ID, string _Name, string _LastName, string _ImageURL, DateTime _DateOfBirth,Gender _userGender)
         {
             IUserProfile userProfile = new UserProfile()
             {
@@ -55,6 +55,7 @@ namespace AppPCL.Implementations.Services
                 LastName = _LastName,
                 UserImage = _ImageURL,
                 DateOfBirth = _DateOfBirth,
+                UserGender = _userGender,
                 ID = _ID,
                 IsProfileSetup = false,
                 userFriends = new List<IUserMiniProfileDTO>(),

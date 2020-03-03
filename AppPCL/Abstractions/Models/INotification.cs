@@ -10,6 +10,8 @@ namespace AppPCL.Abstractions.Models
     {
         IUserMiniProfileDTO FromUser { get; set; }
         IUserMiniProfileDTO ToUser { get; set; }
-        bool IsAccepted { get; set; }
+        bool IsSeen { get; set; }
+        bool IsReacted{ get; set; }
+        string NotificationKey { get; set; }
     }
 }

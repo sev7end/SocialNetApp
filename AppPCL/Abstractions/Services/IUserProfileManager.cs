@@ -12,7 +12,7 @@ namespace AppPCL.Abstractions.Services
         Task<List<IUserMiniProfileDTO>> GetUserDTOsByNamesAsync(string name, string lastname);
         Task<IUserProfile> LoadUserProfileFromIDAsync(int ID);
         Task UpdateProfileAsync(IUserProfile userProfile);
-        IUserProfile CreateProfile(int _ID, string _Name, string _LastName, string _ImageURL, DateTime _DateOfBirth);
+        IUserProfile CreateProfile(int _ID, string _Name, string _LastName, string _ImageURL, DateTime _DateOfBirth, Gender _userGender);
         Task<List<IUserMiniProfileDTO>> GetUserFriendsAsync(int ID);
         Task<IUserProfile> LoadUserProfileFromDTOAsync(IUserMiniProfileDTO userProfileDTO);
     }

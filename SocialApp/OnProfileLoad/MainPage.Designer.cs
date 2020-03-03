@@ -32,10 +32,8 @@ namespace SocialApp.OnProfileLoad
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
             this.CurrentProfilePictureBox = new System.Windows.Forms.PictureBox();
-            this.MessagesButton = new MetroSet_UI.Controls.MetroSetButton();
-            this.FriendsButton = new MetroSet_UI.Controls.MetroSetButton();
-            this.RequestsButton = new MetroSet_UI.Controls.MetroSetButton();
             this.ProfilesPanel = new MetroSet_UI.Controls.MetroSetPanel();
             this.textBox1 = new MetroSet_UI.Controls.MetroSetTextBox();
             this.metroSetButton1 = new MetroSet_UI.Controls.MetroSetButton();
@@ -48,10 +46,27 @@ namespace SocialApp.OnProfileLoad
             this.metroSetSwitch1 = new MetroSet_UI.Controls.MetroSetSwitch();
             this.metroSetLabel1 = new MetroSet_UI.Controls.MetroSetLabel();
             this.ProfileLink = new System.Windows.Forms.LinkLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.metroSetPanel1 = new MetroSet_UI.Controls.MetroSetPanel();
+            this.MessagesLabel = new MetroSet_UI.Controls.MetroSetLabel();
+            this.metroSetPanel2 = new MetroSet_UI.Controls.MetroSetPanel();
+            this.NotificationsLabel = new MetroSet_UI.Controls.MetroSetLabel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.metroSetPanel3 = new MetroSet_UI.Controls.MetroSetPanel();
+            this.FriendsLabel = new MetroSet_UI.Controls.MetroSetLabel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.CurrentProfilePictureBox)).BeginInit();
             this.metroSetTabControl1.SuspendLayout();
             this.metroSetTabPage1.SuspendLayout();
             this.metroSetTabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.metroSetPanel1.SuspendLayout();
+            this.metroSetPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.metroSetPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // CurrentProfilePictureBox
@@ -62,85 +77,6 @@ namespace SocialApp.OnProfileLoad
             this.CurrentProfilePictureBox.TabIndex = 1;
             this.CurrentProfilePictureBox.TabStop = false;
             // 
-            // MessagesButton
-            // 
-            this.MessagesButton.BackColor = System.Drawing.Color.Transparent;
-            this.MessagesButton.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.MessagesButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.MessagesButton.DisabledForeColor = System.Drawing.Color.Gray;
-            this.MessagesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.MessagesButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.MessagesButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.MessagesButton.HoverTextColor = System.Drawing.Color.White;
-            this.MessagesButton.Location = new System.Drawing.Point(5, 287);
-            this.MessagesButton.Name = "MessagesButton";
-            this.MessagesButton.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.MessagesButton.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.MessagesButton.NormalTextColor = System.Drawing.Color.White;
-            this.MessagesButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.MessagesButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.MessagesButton.PressTextColor = System.Drawing.Color.White;
-            this.MessagesButton.Size = new System.Drawing.Size(179, 29);
-            this.MessagesButton.Style = MetroSet_UI.Design.Style.Light;
-            this.MessagesButton.StyleManager = null;
-            this.MessagesButton.TabIndex = 3;
-            this.MessagesButton.Text = "Messages";
-            this.MessagesButton.ThemeAuthor = "Narwin";
-            this.MessagesButton.ThemeName = "MetroLite";
-            this.MessagesButton.Click += new System.EventHandler(this.MessagesButton_Click);
-            // 
-            // FriendsButton
-            // 
-            this.FriendsButton.BackColor = System.Drawing.Color.Transparent;
-            this.FriendsButton.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.FriendsButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.FriendsButton.DisabledForeColor = System.Drawing.Color.Gray;
-            this.FriendsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.FriendsButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.FriendsButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.FriendsButton.HoverTextColor = System.Drawing.Color.White;
-            this.FriendsButton.Location = new System.Drawing.Point(5, 357);
-            this.FriendsButton.Name = "FriendsButton";
-            this.FriendsButton.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.FriendsButton.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.FriendsButton.NormalTextColor = System.Drawing.Color.White;
-            this.FriendsButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.FriendsButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.FriendsButton.PressTextColor = System.Drawing.Color.White;
-            this.FriendsButton.Size = new System.Drawing.Size(179, 29);
-            this.FriendsButton.Style = MetroSet_UI.Design.Style.Light;
-            this.FriendsButton.StyleManager = null;
-            this.FriendsButton.TabIndex = 4;
-            this.FriendsButton.Text = "Friends";
-            this.FriendsButton.ThemeAuthor = "Narwin";
-            this.FriendsButton.ThemeName = "MetroLite";
-            // 
-            // RequestsButton
-            // 
-            this.RequestsButton.BackColor = System.Drawing.Color.Transparent;
-            this.RequestsButton.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.RequestsButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.RequestsButton.DisabledForeColor = System.Drawing.Color.Gray;
-            this.RequestsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.RequestsButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.RequestsButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.RequestsButton.HoverTextColor = System.Drawing.Color.White;
-            this.RequestsButton.Location = new System.Drawing.Point(5, 322);
-            this.RequestsButton.Name = "RequestsButton";
-            this.RequestsButton.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.RequestsButton.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.RequestsButton.NormalTextColor = System.Drawing.Color.White;
-            this.RequestsButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.RequestsButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.RequestsButton.PressTextColor = System.Drawing.Color.White;
-            this.RequestsButton.Size = new System.Drawing.Size(179, 29);
-            this.RequestsButton.Style = MetroSet_UI.Design.Style.Light;
-            this.RequestsButton.StyleManager = null;
-            this.RequestsButton.TabIndex = 5;
-            this.RequestsButton.Text = "Requests";
-            this.RequestsButton.ThemeAuthor = "Narwin";
-            this.RequestsButton.ThemeName = "MetroLite";
-            // 
             // ProfilesPanel
             // 
             this.ProfilesPanel.BackgroundColor = System.Drawing.Color.White;
@@ -150,7 +86,7 @@ namespace SocialApp.OnProfileLoad
             this.ProfilesPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.ProfilesPanel.Location = new System.Drawing.Point(0, 0);
             this.ProfilesPanel.Name = "ProfilesPanel";
-            this.ProfilesPanel.Size = new System.Drawing.Size(1009, 654);
+            this.ProfilesPanel.Size = new System.Drawing.Size(713, 654);
             this.ProfilesPanel.Style = MetroSet_UI.Design.Style.Light;
             this.ProfilesPanel.StyleManager = null;
             this.ProfilesPanel.TabIndex = 16;
@@ -222,12 +158,12 @@ namespace SocialApp.OnProfileLoad
             this.metroSetTabControl1.AnimateTime = 200;
             this.metroSetTabControl1.Controls.Add(this.metroSetTabPage1);
             this.metroSetTabControl1.Controls.Add(this.metroSetTabPage2);
-            this.metroSetTabControl1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.metroSetTabControl1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.metroSetTabControl1.ItemSize = new System.Drawing.Size(100, 38);
-            this.metroSetTabControl1.Location = new System.Drawing.Point(192, 84);
+            this.metroSetTabControl1.Location = new System.Drawing.Point(211, 84);
             this.metroSetTabControl1.Name = "metroSetTabControl1";
             this.metroSetTabControl1.SelectedIndex = 0;
-            this.metroSetTabControl1.Size = new System.Drawing.Size(1017, 700);
+            this.metroSetTabControl1.Size = new System.Drawing.Size(721, 700);
             this.metroSetTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.metroSetTabControl1.Speed = 20;
             this.metroSetTabControl1.Style = MetroSet_UI.Design.Style.Light;
@@ -247,7 +183,7 @@ namespace SocialApp.OnProfileLoad
             this.metroSetTabPage1.ImageKey = null;
             this.metroSetTabPage1.Location = new System.Drawing.Point(4, 42);
             this.metroSetTabPage1.Name = "metroSetTabPage1";
-            this.metroSetTabPage1.Size = new System.Drawing.Size(1009, 654);
+            this.metroSetTabPage1.Size = new System.Drawing.Size(713, 654);
             this.metroSetTabPage1.Style = MetroSet_UI.Design.Style.Light;
             this.metroSetTabPage1.StyleManager = null;
             this.metroSetTabPage1.TabIndex = 0;
@@ -264,7 +200,7 @@ namespace SocialApp.OnProfileLoad
             this.metroSetTabPage2.ImageKey = null;
             this.metroSetTabPage2.Location = new System.Drawing.Point(4, 42);
             this.metroSetTabPage2.Name = "metroSetTabPage2";
-            this.metroSetTabPage2.Size = new System.Drawing.Size(1009, 654);
+            this.metroSetTabPage2.Size = new System.Drawing.Size(713, 654);
             this.metroSetTabPage2.Style = MetroSet_UI.Design.Style.Light;
             this.metroSetTabPage2.StyleManager = null;
             this.metroSetTabPage2.TabIndex = 1;
@@ -281,7 +217,7 @@ namespace SocialApp.OnProfileLoad
             this.FriendsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FriendsPanel.Location = new System.Drawing.Point(0, 0);
             this.FriendsPanel.Name = "FriendsPanel";
-            this.FriendsPanel.Size = new System.Drawing.Size(1009, 654);
+            this.FriendsPanel.Size = new System.Drawing.Size(713, 654);
             this.FriendsPanel.Style = MetroSet_UI.Design.Style.Light;
             this.FriendsPanel.StyleManager = null;
             this.FriendsPanel.TabIndex = 0;
@@ -375,7 +311,7 @@ namespace SocialApp.OnProfileLoad
             this.ProfileLink.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ProfileLink.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.ProfileLink.LinkColor = System.Drawing.Color.Black;
-            this.ProfileLink.Location = new System.Drawing.Point(5, 234);
+            this.ProfileLink.Location = new System.Drawing.Point(5, 230);
             this.ProfileLink.Name = "ProfileLink";
             this.ProfileLink.Size = new System.Drawing.Size(91, 22);
             this.ProfileLink.TabIndex = 21;
@@ -384,11 +320,147 @@ namespace SocialApp.OnProfileLoad
             this.ProfileLink.VisitedLinkColor = System.Drawing.Color.Black;
             this.ProfileLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ProfileLink_LinkClicked_1);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(1, -9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(48, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(-22, 255);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(227, 12);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 23;
+            this.pictureBox2.TabStop = false;
+            // 
+            // metroSetPanel1
+            // 
+            this.metroSetPanel1.BackgroundColor = System.Drawing.Color.White;
+            this.metroSetPanel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.metroSetPanel1.BorderThickness = 0;
+            this.metroSetPanel1.Controls.Add(this.MessagesLabel);
+            this.metroSetPanel1.Controls.Add(this.pictureBox1);
+            this.metroSetPanel1.Location = new System.Drawing.Point(1, 273);
+            this.metroSetPanel1.Name = "metroSetPanel1";
+            this.metroSetPanel1.Size = new System.Drawing.Size(210, 33);
+            this.metroSetPanel1.Style = MetroSet_UI.Design.Style.Light;
+            this.metroSetPanel1.StyleManager = null;
+            this.metroSetPanel1.TabIndex = 24;
+            this.metroSetPanel1.ThemeAuthor = "Narwin";
+            this.metroSetPanel1.ThemeName = "MetroLite";
+            // 
+            // MessagesLabel
+            // 
+            this.MessagesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MessagesLabel.Location = new System.Drawing.Point(47, 6);
+            this.MessagesLabel.Name = "MessagesLabel";
+            this.MessagesLabel.Size = new System.Drawing.Size(179, 44);
+            this.MessagesLabel.Style = MetroSet_UI.Design.Style.Light;
+            this.MessagesLabel.StyleManager = null;
+            this.MessagesLabel.TabIndex = 23;
+            this.MessagesLabel.Text = "Messages";
+            this.MessagesLabel.ThemeAuthor = "Narwin";
+            this.MessagesLabel.ThemeName = "MetroLite";
+            this.MessagesLabel.Click += new System.EventHandler(this.MessagesLabel_Click);
+            // 
+            // metroSetPanel2
+            // 
+            this.metroSetPanel2.BackgroundColor = System.Drawing.Color.White;
+            this.metroSetPanel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.metroSetPanel2.BorderThickness = 0;
+            this.metroSetPanel2.Controls.Add(this.NotificationsLabel);
+            this.metroSetPanel2.Controls.Add(this.pictureBox3);
+            this.metroSetPanel2.Location = new System.Drawing.Point(1, 308);
+            this.metroSetPanel2.Name = "metroSetPanel2";
+            this.metroSetPanel2.Size = new System.Drawing.Size(210, 33);
+            this.metroSetPanel2.Style = MetroSet_UI.Design.Style.Light;
+            this.metroSetPanel2.StyleManager = null;
+            this.metroSetPanel2.TabIndex = 25;
+            this.metroSetPanel2.ThemeAuthor = "Narwin";
+            this.metroSetPanel2.ThemeName = "MetroLite";
+            // 
+            // NotificationsLabel
+            // 
+            this.NotificationsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NotificationsLabel.Location = new System.Drawing.Point(47, 6);
+            this.NotificationsLabel.Name = "NotificationsLabel";
+            this.NotificationsLabel.Size = new System.Drawing.Size(179, 44);
+            this.NotificationsLabel.Style = MetroSet_UI.Design.Style.Light;
+            this.NotificationsLabel.StyleManager = null;
+            this.NotificationsLabel.TabIndex = 23;
+            this.NotificationsLabel.Text = "Notifications";
+            this.NotificationsLabel.ThemeAuthor = "Narwin";
+            this.NotificationsLabel.ThemeName = "MetroLite";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(1, -9);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(48, 50);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 22;
+            this.pictureBox3.TabStop = false;
+            // 
+            // metroSetPanel3
+            // 
+            this.metroSetPanel3.BackgroundColor = System.Drawing.Color.White;
+            this.metroSetPanel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.metroSetPanel3.BorderThickness = 0;
+            this.metroSetPanel3.Controls.Add(this.FriendsLabel);
+            this.metroSetPanel3.Controls.Add(this.pictureBox4);
+            this.metroSetPanel3.Location = new System.Drawing.Point(1, 343);
+            this.metroSetPanel3.Name = "metroSetPanel3";
+            this.metroSetPanel3.Size = new System.Drawing.Size(210, 33);
+            this.metroSetPanel3.Style = MetroSet_UI.Design.Style.Light;
+            this.metroSetPanel3.StyleManager = null;
+            this.metroSetPanel3.TabIndex = 25;
+            this.metroSetPanel3.ThemeAuthor = "Narwin";
+            this.metroSetPanel3.ThemeName = "MetroLite";
+            // 
+            // FriendsLabel
+            // 
+            this.FriendsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FriendsLabel.Location = new System.Drawing.Point(47, 6);
+            this.FriendsLabel.Name = "FriendsLabel";
+            this.FriendsLabel.Size = new System.Drawing.Size(179, 44);
+            this.FriendsLabel.Style = MetroSet_UI.Design.Style.Light;
+            this.FriendsLabel.StyleManager = null;
+            this.FriendsLabel.TabIndex = 23;
+            this.FriendsLabel.Text = "Friends";
+            this.FriendsLabel.ThemeAuthor = "Narwin";
+            this.FriendsLabel.ThemeName = "MetroLite";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(11, 4);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(28, 26);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 22;
+            this.pictureBox4.TabStop = false;
+            // 
             // MainPage
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ClientSize = new System.Drawing.Size(1220, 789);
+            this.Controls.Add(this.metroSetPanel3);
+            this.Controls.Add(this.metroSetPanel2);
+            this.Controls.Add(this.metroSetPanel1);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.ProfileLink);
             this.Controls.Add(this.metroSetLabel1);
             this.Controls.Add(this.metroSetSwitch1);
@@ -396,10 +468,7 @@ namespace SocialApp.OnProfileLoad
             this.Controls.Add(this.button1);
             this.Controls.Add(this.metroSetTabControl1);
             this.Controls.Add(this.metroSetButton1);
-            this.Controls.Add(this.RequestsButton);
-            this.Controls.Add(this.FriendsButton);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.MessagesButton);
             this.Controls.Add(this.CurrentProfilePictureBox);
             this.ImeMode = System.Windows.Forms.ImeMode.Close;
             this.MinimumSize = new System.Drawing.Size(1220, 789);
@@ -416,6 +485,13 @@ namespace SocialApp.OnProfileLoad
             this.metroSetTabControl1.ResumeLayout(false);
             this.metroSetTabPage1.ResumeLayout(false);
             this.metroSetTabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.metroSetPanel1.ResumeLayout(false);
+            this.metroSetPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.metroSetPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -423,9 +499,6 @@ namespace SocialApp.OnProfileLoad
 
         #endregion
         private System.Windows.Forms.PictureBox CurrentProfilePictureBox;
-        private MetroSetButton MessagesButton;
-        private MetroSetButton FriendsButton;
-        private MetroSetButton RequestsButton;
         private MetroSetTextBox textBox1;
         private MetroSetPanel ProfilesPanel;
         private MetroSetButton metroSetButton1;
@@ -438,6 +511,15 @@ namespace SocialApp.OnProfileLoad
         private MetroSetSwitch metroSetSwitch1;
         private MetroSetLabel metroSetLabel1;
         private LinkLabel ProfileLink;
-        
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private MetroSetPanel metroSetPanel1;
+        private MetroSetLabel MessagesLabel;
+        private MetroSetPanel metroSetPanel2;
+        private MetroSetLabel NotificationsLabel;
+        private PictureBox pictureBox3;
+        private MetroSetPanel metroSetPanel3;
+        private MetroSetLabel FriendsLabel;
+        private PictureBox pictureBox4;
     }
 }

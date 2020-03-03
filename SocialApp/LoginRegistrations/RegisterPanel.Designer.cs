@@ -142,7 +142,7 @@ namespace SocialApp.LoginRegistrations
             this.PassBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.PassBox.Image = null;
             this.PassBox.Lines = null;
-            this.PassBox.Location = new System.Drawing.Point(24, 410);
+            this.PassBox.Location = new System.Drawing.Point(24, 404);
             this.PassBox.MaxLength = 32767;
             this.PassBox.Multiline = false;
             this.PassBox.Name = "PassBox";
@@ -198,7 +198,7 @@ namespace SocialApp.LoginRegistrations
             this.PassVBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.PassVBox.Image = null;
             this.PassVBox.Lines = null;
-            this.PassVBox.Location = new System.Drawing.Point(24, 455);
+            this.PassVBox.Location = new System.Drawing.Point(24, 449);
             this.PassVBox.MaxLength = 32767;
             this.PassVBox.Multiline = false;
             this.PassVBox.Name = "PassVBox";
@@ -317,7 +317,7 @@ namespace SocialApp.LoginRegistrations
             // metroSetLabel1
             // 
             this.metroSetLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.metroSetLabel1.Location = new System.Drawing.Point(24, 333);
+            this.metroSetLabel1.Location = new System.Drawing.Point(24, 325);
             this.metroSetLabel1.Name = "metroSetLabel1";
             this.metroSetLabel1.Size = new System.Drawing.Size(198, 23);
             this.metroSetLabel1.Style = MetroSet_UI.Design.Style.Light;
@@ -347,7 +347,7 @@ namespace SocialApp.LoginRegistrations
             "Male",
             "Female",
             "Other"});
-            this.GenderCombo.Location = new System.Drawing.Point(24, 359);
+            this.GenderCombo.Location = new System.Drawing.Point(24, 351);
             this.GenderCombo.Name = "GenderCombo";
             this.GenderCombo.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.GenderCombo.SelectedItemForeColor = System.Drawing.Color.White;

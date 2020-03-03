@@ -32,7 +32,7 @@ namespace Registration.Implementations.Services
             };
             var userToBeLoaded = await _WebWorkerService.GetUsersFromDatabaseAsync();
                 var user = userToBeLoaded.FirstOrDefault(o => 
-            o.authenticationData.UserName == userCredintals.UserName 
+            o.authenticationData.UserName.ToLower() == userCredintals.UserName.ToLower() 
             && o.authenticationData.Password == userCredintals.Password);
             if(user != null)
             {
@@ -78,7 +78,7 @@ namespace Registration.Implementations.Services
             }, DataType.ProfileDTO) ;
            await _WebWorkerService.AddUserToDatabaseAsync(new User()
             {
-                UserProfileData = _UserManager.CreateProfile(await _WebWorkerService.GetLatestIDAsync(), _name, _lastName, ImageURL, DateTime.Now),
+                UserProfileData = _UserManager.CreateProfile(await _WebWorkerService.GetLatestIDAsync(), _name, _lastName, ImageURL, DateTime.Now, gender),
                 authenticationData = new AuthenticationData() { UserName = _Email, Password = _password },
                 ID = await _WebWorkerService.GetLatestIDAsync()
             }) ;

@@ -40,51 +40,52 @@ namespace SocialApp.LoginRegistrations
         private async void button1_Click(object sender, EventArgs e)
         {
             try{
-                UserGender = GenderCombo.SelectedValue.ToString();
-            }
-            catch (NullReferenceException ex)
-            {
-                MessageBox.Show("Select your gender!");
-                return;
-            }
-            if (!string.IsNullOrEmpty(NameBox.Text) || !string.IsNullOrEmpty(LastNameBox.Text) || 
-                !string.IsNullOrEmpty(PassBox.Text) || !string.IsNullOrEmpty(PassVBox.Text)
-                || !string.IsNullOrEmpty(UserBox.Text) || !string.IsNullOrEmpty(UserGender)) 
-            {
-                if(PassBox.Text == PassVBox.Text)
+                UserGender = GenderCombo.SelectedItem.ToString();
+    
+                if (!string.IsNullOrEmpty(NameBox.Text) || !string.IsNullOrEmpty(LastNameBox.Text) || 
+                    !string.IsNullOrEmpty(PassBox.Text) || !string.IsNullOrEmpty(PassVBox.Text)
+                    || !string.IsNullOrEmpty(UserBox.Text) || !string.IsNullOrEmpty(UserGender)) 
                 {
-                    var checker = await userManager.CheckUserExistenceAsync(UserBox.Text);
-                    if (!checker)
+                    if(PassBox.Text == PassVBox.Text)
                     {
-                        if (!string.IsNullOrWhiteSpace(FileLocation.Text))
+                        var checker = await userManager.CheckUserExistenceAsync(UserBox.Text);
+                        if (!checker)
                         {
-                            UserProfilePic = pictureManager.UploadPicture(FileLocation.Text);
+                            if (!string.IsNullOrWhiteSpace(FileLocation.Text))
+                            {
+                                UserProfilePic = pictureManager.UploadPicture(FileLocation.Text);
+                            }
+                            else
+                                UserProfilePic = pictureBox1.ImageLocation;
+
+                            await userManager.RegisterNewUserAsync(NameBox.Text, LastNameBox.Text, UserBox.Text, PassVBox.Text, UserProfilePic,UserGender);
+                            MetroSetMessageBox.Show(this, "Registration was successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Hide();
+                            loginPanel = new LoginPanel();
+                            loginPanel.Show();
+                            this.Close();
+
                         }
                         else
-                            UserProfilePic = pictureBox1.ImageLocation;
-
-                        await userManager.RegisterNewUserAsync(NameBox.Text, LastNameBox.Text, UserBox.Text, PassVBox.Text, UserProfilePic,UserGender);
-                        MetroSetMessageBox.Show(this, "Registration was successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Hide();
-                        loginPanel = new LoginPanel();
-                        loginPanel.Show();
-                        this.Close();
-
+                            MetroSetMessageBox.Show(this, "Username is already in use!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
-                        MetroSetMessageBox.Show(this, "Username is already in use!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    {
+                        MetroSetMessageBox.Show(this, "Passwords didn't match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
                 }
                 else
                 {
-                    MetroSetMessageBox.Show(this, "Passwords didn't match.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MetroSetMessageBox.Show(this, "Fill all the gaps!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
             }
-            else
+            catch (NullReferenceException ex)
             {
-                MetroSetMessageBox.Show(this, "Fill all the gaps!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroSetMessageBox.Show(this, "Enter your gender!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-        }
+}
         #region
         //private void UploadButton_Click(object sender, EventArgs e)
         //{

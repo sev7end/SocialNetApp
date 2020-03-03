@@ -13,11 +13,11 @@ namespace AppPCL.Implementations.Services
     public class WebService : IWebServices
     {
         private static string APIUrl = "https://wworker-cc787.firebaseio.com/";
-        private string UsersTable = "users";
-        private string MessageTable = "messages";
+        private string UsersTable = "Users";
+        private string MessageTable = "Messages";
         private string ProfileTable = "UserProfileData";
-        private string ProfileDTOTable = "profiledtos";
-        private string NotificationTable = "notifications";
+        private string ProfileDTOTable = "ProfileDtos";
+        private string NotificationTable = "Notifications";
 
         private FirebaseClient firebaseClient = new FirebaseClient(APIUrl);
 
@@ -37,12 +37,34 @@ namespace AppPCL.Implementations.Services
                     return null;
             }
         }
+        public async Task<FirebaseObject<T>> AddDataOfTypeAsync<T>(T Something, DataType DataType)
+        {
+            var GetThis = await firebaseClient
+                .Child(GetDataTable(DataType))
+                .PostAsync(Something);
+            return GetThis;
+        }
+        public async Task UpdateDataOfTypeAsync<T>(T Something, DataType dataType, string KeyOfType)
+        {
+            await firebaseClient
+                .Child(GetDataTable(dataType))
+                .Child(KeyOfType)
+                .PutAsync(Something);
+        }
+        public async Task DeleteDataOfTypeAsync<T>(T Something, DataType dataType, string KeyOfType)
+        {
+            await firebaseClient
+                .Child(GetDataTable(dataType))
+                .Child(KeyOfType)
+                .DeleteAsync();
+        }
+        #region OldShit
         private async Task<FirebaseObject<string>> AddDataToServerAsync(string data, DataType dataType)
         {
             if (dataType != DataType.Profile)
             {
                 var userData = await firebaseClient.Child(GetDataTable(dataType)).PostAsync(data);
-                return null;
+                return userData;
             }
             else
                 return await firebaseClient.Child(GetDataTable(dataType)).PostAsync(data);
@@ -56,6 +78,7 @@ namespace AppPCL.Implementations.Services
                 .Child(ProfileTable)
                 .PutAsync(data);
         }
+        #endregion
         #region Setters
         public async Task AddItemToDatabaseAsync<T>(T item , DataType dataType)
         {
@@ -123,7 +146,7 @@ namespace AppPCL.Implementations.Services
             {
                 FromUser = o.FromUser,
                 ToUser = o.ToUser,
-                IsAccepted = o.IsAccepted
+                IsSeen = o.IsAccepted
             }).ToList<INotification>();
 
             return AbstractCollection;
